@@ -16,8 +16,8 @@ const Home = () => {
    animate = {{opacity:1, y:0}}
    exit = {{opacity:0, y:'-50%'}}
    transition = {transition1}
-   className='section'>
-    <div className = 'container mx-auto h-full relative'>
+   className='section overflow-auto'>
+    <div className = 'container mx-auto h-full relative '>
       <div className = 'flex flex-col justify-center'>
         <motion.div 
         initial = {{opacity:0, y:'-50%'}} 
