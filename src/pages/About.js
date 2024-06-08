@@ -44,6 +44,8 @@ const About = () => {
           </Link>
         </motion.div>
       </div>
+      <br/>
+      <br/>
     </div>
   </motion.section>
   )

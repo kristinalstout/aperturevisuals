@@ -25,8 +25,9 @@ const Services = () => {
     onMouseLeave = {mouseLeaveHandler}  
     className = 'container mx-auto h-full relative '>
       <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16'>
-        <div className = 'flex-1 max-h-96 lg:max-h-max order-2 lg:order-none overflow-hidden'>
+        <div className = 'flex-1 max-h-full order-2 lg:order-none overflow-hidden'>
           <img src = {KrisCherryBlossom} alt = ''/>
+          {/* lg:max-h-max  */}
         </div>
         <motion.div 
         initial = {{opacity:0, y:'-80%'}} 
@@ -36,10 +37,10 @@ const Services = () => {
         className = 'flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
           <h1 className = 'h1'>Portraits</h1>
           <p className = 'mb-12 max-w-sm'>
-            Words words words
+            Single & Group
             <br/>
             <br/>
-            words words words
+            should we include product photos as a service?
           </p>
           <Link to = {'/portraits'} className = 'btn'> 
             View my work
@@ -56,10 +57,10 @@ const Services = () => {
         className = 'flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
           <h1 className = 'h1'>Events</h1>
           <p className = 'mb-12 max-w-sm'>
-            Words words words
+            Corporate, Group, Organizations
             <br/>
             <br/>
-            words words words
+
           </p>
           <Link to = {'/events'} className = 'btn'> 
             View my work
@@ -69,7 +70,8 @@ const Services = () => {
           <img src = {Shirt} alt = ''/>
         </div>
       </div>
-      
+      <br/>
+      <br/>
     </div>
     
   </motion.section>
