@@ -3,7 +3,7 @@ import WomanImg from '../img/contact/woman.png'
 import Transparent from '../img/contact/transparent.png'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-
+import Socials from '../components/Socials'
 import { CursorContext } from '../context/CursorContext';
 
 const Contact = () => {
@@ -53,6 +53,10 @@ const Contact = () => {
             <button className = 'btn mb-[30px] mx-auto lg:mx-0 self-start'> Send it</button>
 
           </form>
+          <div className='lg:hidden'>
+           <Socials/>  
+          </div>
+
         </div>
         <motion.div 
         onMouseEnter = {mouseEnterHandler}
@@ -64,6 +68,9 @@ const Contact = () => {
         className = 'lg:flex-1'>
           <img src={Transparent} alt=''/>
         </motion.div>
+      </div>
+      <div>
+
       </div>
     </div>
   </motion.section>

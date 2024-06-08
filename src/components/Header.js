@@ -15,13 +15,13 @@ const Header = () => {
   return <header className='fixed w-full 
   px-[30px] lg:px-[100px] 
   z-30 h-[100px] lg:h-[140px] 
-  flex items-center'>
+  flex items-center '>
     <div 
     className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
       <Link  
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
-        to={'/'} className = 'max-w-[75px]'>
+        to={'/'} className = 'max-w-[50px] lg:max-w-[75px]'>
          <img src={RoughLogo} alt=''/>
       </Link>
       <nav className='hidden xl:flex gap-x-12 font-semibold'>
@@ -56,10 +56,10 @@ const Header = () => {
           Contact
         </Link>
       </nav>   
-      <Socials/>
-      <MobileNav />
+
     </div> 
- 
+      <Socials/>
+      <MobileNav/>
     </header>
 };
 
