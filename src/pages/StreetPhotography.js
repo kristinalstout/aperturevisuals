@@ -7,10 +7,9 @@ import {transition1} from '../transitions'
 import Orange from '../img/portfolio/street/orange.jpg'
 import Steps from '../img/portfolio/street/steps.jpg' 
 import Bmore from '../img/portfolio/street/bmore.jpg'
-import Dark from '../img/portfolio/street/dark.jpg'
-import Great from '../img/portfolio/kristina/great.jpg'
+
 import Couple from '../img/portfolio/misc/couple.jpg'
-import Dc from '../img/portfolio/misc/dc.jpg'
+
 
 import { CursorContext } from '../context/CursorContext';
 

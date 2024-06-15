@@ -9,7 +9,7 @@ import { CursorContext } from './context/CursorContext';
 
 
 const App = () => {
-  const{cursorVariants, cursorBG, MouseEnterHandler, MouseLeaveHandler } = useContext(CursorContext)
+  const{cursorVariants, cursorBG } = useContext(CursorContext)
   return (
   <>
   <Router>

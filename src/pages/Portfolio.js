@@ -1,12 +1,10 @@
 import React, {useContext} from 'react';
 
 import Sax from '../img/portfolio/portrait/sax.jpg'
-import CoupleCherry from '../img/portfolio/portrait/sax.jpg'
-import NationalHarbor from '../img/portfolio/kristina/ferriscool.jpg'
-import Orange from '../img/portfolio/street/orange.jpg'
+
 import Boat from '../img/portfolio/calvert/boat.jpg'
 import Conversation from '../img/portfolio/event/conversation.jpg'
-import Couple from '../img/portfolio/misc/couple.jpg'
+
 import Dc from '../img/portfolio/misc/dc.jpg'
 
 import {Link} from 'react-router-dom'

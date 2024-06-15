@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import WomanImg from '../img/home/woman.png'
+import Colors from '../img/home/colors.jpg'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-import Walking from '../img/home/walking.jpg'
+
 
 import { CursorContext } from '../context/CursorContext';
 
@@ -27,11 +27,11 @@ const Home = () => {
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
         className = 'w-full pt-36 pb-14 lg:pt-0 lg:pb-0 lg:w-auto z-10 lg:absolute flex flex-col justify-center items-center lg:items-start'>
-          <h1 className = 'h1'>
+          <h1 className = 'h1 text-white text-opacity-60'>
             Aperture Visuals
           </h1>
-          <p className = 'text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12'>
-            {/* just as soulful as you <br/> servicing the entire DMV area */} one of a kind storytelling
+          <p className = 'text-[26px] lg:text-[36px] font-primary mb-4 lg:mb-12 text-slate-200 text-opacity-80'>
+            one of a kind storytelling
           </p>
           <Link to ={'/Contact'} className = 'btn mb-[30px]'>schedule services</Link>
         </motion.div>
@@ -41,8 +41,8 @@ const Home = () => {
           animate = {{scale:1}}
           exit = {{scale:0}}
           transition = {transition1}
-          className = 'relative lg::-right-40 overflow-hidden'>
-            <img src = {Walking} alt =''/>
+          className = 'relative lg::-right-40 overflow-auto '>
+            <img src = {Colors} alt =''/>
           </motion.div>
         </div>
 

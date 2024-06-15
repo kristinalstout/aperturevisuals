@@ -1,15 +1,38 @@
-import React, {useContext} from 'react';
-import WomanImg from '../img/contact/woman.png'
+import React, {useContext, useRef} from 'react';
+
 import Transparent from '../img/contact/transparent.png'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import Socials from '../components/Socials'
 import { CursorContext } from '../context/CursorContext';
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  const form = useRef();
 
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm(
+          process.env.REACT_APP_SERVICE_ID, 
+          process.env.REACT_APP_TEMPLATE_ID, 
+          form.current, 
+          {publicKey: process.env.REACT_APP_PUBLIC_KEY,}
+          )
+        .then(
+          () => {
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          },
+        );
+        e.target.reset()
+    };
+  
   return (
   <motion.section 
   initial = {{opacity:0, y:'100%'}} 
@@ -32,20 +55,29 @@ const Contact = () => {
         className='lg:flex-1 lg:pt-32 px-4'>
           <h1 className = 'h1'>Contact Me</h1>
           <p className = 'mb-12'>Schedule a consultation and estimate today!</p>
-          <form className = 'flex flex-col gap-y-4'>
+          <form ref = {form} onSubmit = {sendEmail} className = 'flex flex-col gap-y-4'>
             <div className = 'flex gap-x-10'>
               <input 
+              name = 'name'
               className = 'outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
               type='text'
-              placeholder='Your name'
+              placeholder='Name'
               />
               <input 
+              name = 'email'
               className = 'outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
               type='text'
-              placeholder='Your email'
+              placeholder='Email'
+              />
+              <input 
+              name = 'phonenumber'
+              className = 'outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
+              type='text'
+              placeholder='Phone Number'
               />
             </div>
             <input 
+              name = 'message'
               className = 'outline-none border-b border-b-primary h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
               type='text'
               placeholder="What's your project?"

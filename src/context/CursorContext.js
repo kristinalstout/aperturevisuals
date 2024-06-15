@@ -29,8 +29,7 @@ const CursorProvider = ({children}) => {
     } else{
       setCursorBG('none')
     }
-  })
-  
+  },[mobileViewportIsActive])
   const cursorVariants = {
     default: {
       x: cursorPos.x - 16,
