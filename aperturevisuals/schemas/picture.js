@@ -6,11 +6,11 @@ export const picture = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'type',
+      name: 'name',
       type: 'string',
     }),    
     defineField({
-        name: 'number',
+        name: 'id',
         type: 'number'
     }),
     defineField({

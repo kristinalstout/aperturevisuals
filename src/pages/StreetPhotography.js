@@ -1,16 +1,9 @@
-import React, {useContext} from 'react';
-
-
+import React, {useContext, useEffect, useState} from 'react';
+import {fetchData} from '../fetchData';
+import Picture from './Picture'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-import Orange from '../img/portfolio/street/orange.jpg'
-import Steps from '../img/portfolio/street/steps.jpg' 
-import Bmore from '../img/portfolio/street/bmore.jpg'
-
-import Couple from '../img/portfolio/misc/couple.jpg'
-
-
 import { CursorContext } from '../context/CursorContext';
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
@@ -18,6 +11,13 @@ import { CursorContext } from '../context/CursorContext';
 const DC = () => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  const [pictures, setPictures] = useState([]);
+
+  const query = `*[_type == "picture" && collection._ref == '6f8e9bac-0ae2-4316-807d-340c532ad174']`
+
+  useEffect(() => {
+    fetchData(query).then((data) => setPictures(data));
+  }, []);
 
   return (
   <section 
@@ -47,24 +47,14 @@ const DC = () => {
           </Link>
           </div>
         </motion.div>
-        <div     
-        onMouseEnter = {mouseEnterHandler}
-        onMouseLeave = {mouseLeaveHandler}
-        className = 'grid grid-cols-2 lg:gap-2'>         
-         <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Orange} alt = ''/>
-          </div>          
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full w-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Couple} alt = ''/>
-          </div>
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Steps} alt = ''/>
-          </div>          
-
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Bmore} alt = ''/>
-          </div>
-
+        <div className = 'grid grid-cols-2 lg:gap-2'>
+          {pictures.map((item)=>{
+            return( 
+              <div key={`item-${item.id}`}>
+                <Picture item = {item}/>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

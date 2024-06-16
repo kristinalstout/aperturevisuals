@@ -1,21 +1,42 @@
-import React, {useContext} from 'react';
 
-import Conversation from '../img/portfolio/event/conversation.jpg'
-import Run from '../img/portfolio/event/run.jpg'
-import Shirt from '../img/portfolio/event/shirt.jpg'
-import Stretch from '../img/portfolio/event/stretch.jpg'
+import React, { useEffect, useState, useContext } from 'react';
 
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
+import Picture from './Picture'
 
 import { CursorContext } from '../context/CursorContext';
+import { fetchData} from '../fetchData'
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 
 const Events = () => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  const [pictures, setPictures] = useState([]);
+
+  const query = `*[_type == "picture" && collection._ref == '88e7e31e-ec4c-4099-bca7-294d199888a6']`
+
+  useEffect(() => {
+    fetchData(query).then((data) => setPictures(data));
+    
+  }, []);
+
+  // useEffect(() => {
+  //   const fetchMainPicture = async () => {
+  //     const query = `*[_type == "picture" && collection == 'events']`;
+
+  //     try {
+  //       const data = await client.fetch(query);
+  //       setMainPicture(data);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
+
+  //   fetchMainPicture();
+  // }, []);
 
   return (
   <section 
@@ -45,13 +66,33 @@ const Events = () => {
           </Link>
           </div>
         </motion.div>
-        <div     
+        <div className = 'grid grid-cols-2 lg:gap-2'>
+          {pictures.map((item)=>{
+            return( 
+              <div key={`item-${item.id}`}>
+                <Picture item = {item}/>
+              </div>
+            )
+          })}
+        </div>
+        {/* <div     
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
         // grid-cols-2 lg:gap-2 col-auto
         className = 'grid grid-cols-2 lg:gap-2'>
-
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
+          {mainPicture.map((item)=>{
+           return( 
+            <Link to ={`/${item.type}`}>
+           <div key={`item-${item.type}`}>
+            <img
+          src={urlFor(item.picture).width(200).url()}
+          alt={item.type}
+          className="card__image"
+        />
+          </div></Link>)
+  })} */}
+     
+          {/* <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
             <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Conversation} alt = ''/>
           </div>         
 
@@ -65,9 +106,9 @@ const Events = () => {
 
           <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
             <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Shirt} alt = ''/>
-          </div>
+          </div> */}
 
-        </div>
+        {/* </div> */}
       </div>
     </div>
   </section>

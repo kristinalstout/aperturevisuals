@@ -6,7 +6,7 @@ export const collection = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'type',
+      name: 'name',
       type: 'string',
     }),
     defineField({

@@ -8,6 +8,7 @@ import Portraits from '../pages/Portrait'
 import StreetPhotography from '../pages/StreetPhotography'
 import Events from '../pages/Events'
 import Services from '../pages/Services'
+// import Pictures from '../pages/GetPictures'
 
 import {Routes, Route, useLocation} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
@@ -19,13 +20,14 @@ const AnimRoutes = () => {
     <Routes key = {location.pathname} location = {location}>
       <Route path='/' element={<Home/>}/>
       <Route path='/about' element={<About/>}/>
-      <Route path='/portfolio' element={<Portfolio/>}/>
+      <Route path='/portfolio' element={<Portfolio />}/>
       <Route path='/portraits' element={<Portraits/>}/>
       <Route path='/calvert' element={<Calvert/>}/>
       <Route path='/events' element={<Events/>}/>
       <Route path='/street-photography' element={<StreetPhotography/>}/>
       <Route path='/services' element = {<Services/>}/>
       <Route path='/contact' element={<Contact/>}/>
+      {/* <Route path = '/pictures' element={<Pictures/>}/> */}
     </Routes>
   </AnimatePresence>
   );

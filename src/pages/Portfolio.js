@@ -1,23 +1,29 @@
-import React, {useContext} from 'react';
-
-import Sax from '../img/portfolio/portrait/sax.jpg'
-
-import Boat from '../img/portfolio/calvert/boat.jpg'
-import Conversation from '../img/portfolio/event/conversation.jpg'
-
-import Dc from '../img/portfolio/misc/dc.jpg'
+import React, {useContext, useEffect, useState, useRef} from 'react';
 
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-
 import { CursorContext } from '../context/CursorContext';
+import Picture from './Picture'
+
+
+import { fetchData} from '../fetchData'
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 
 const Portfolio = () => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  const [pictures, setPictures] = useState([]);
+
+  const query = `*[_type == "collection"]`
+
+  useEffect(() => {
+    fetchData(query).then((data) => setPictures(data));
+  }, []);
+
+  
+
 
   return (
   <section 
@@ -47,36 +53,18 @@ const Portfolio = () => {
             Schedule a shoot
           </Link>
         </motion.div>
-        <div     
+        {/* <div     
         onMouseEnter = {mouseEnterHandler}
-        onMouseLeave = {mouseLeaveHandler}
-        // grid-cols-2 lg:gap-2 col-auto
-        className = 'grid grid-cols-2 lg:gap-2'>
-          <Link to='/portraits'>
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Sax} alt = ''/>
-          </div>         
-          </Link> 
-          <Link to='/events'>
-          <div className = 'max-w-[250px] lg:max-w-[220px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover w-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Conversation} alt = ''/>
-          </div>
-          </Link>
-
-
-          <Link to='/calvert'>
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Boat} alt = ''/>
-          </div>
-          </Link>
-          <Link to='/street-photography'>
-          <div className = 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden'>
-            <img className = 'object-cover h-full w-full lg:h-[340px] hover:scale-110 transition-all duration-500' src = {Dc} alt = ''/>
-          </div>
-          </Link>
-         
-
-
+        onMouseLeave = {mouseLeaveHandler} */}
+ {/* grid-cols-2 lg:gap-2 col-auto */}
+        <div className = 'grid grid-cols-2 lg:gap-2'>
+          {pictures.map((item)=>{
+            return( 
+              <div key={`item-${item.id}`}>
+                <Picture item = {item}/>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>

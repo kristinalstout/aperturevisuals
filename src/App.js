@@ -1,4 +1,5 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect,useState} from 'react';
+import {client} from './client'
 import Header from './components/Header'
 import AnimRoutes from './components/AnimRoutes';
 import {BrowserRouter as Router} from 'react-router-dom'
@@ -9,12 +10,14 @@ import { CursorContext } from './context/CursorContext';
 
 
 const App = () => {
+  
   const{cursorVariants, cursorBG } = useContext(CursorContext)
+
   return (
   <>
   <Router>
     <Header/>
-    <AnimRoutes/>
+    <AnimRoutes />
     <SpeedInsights />
   </Router>
   <motion.div 
