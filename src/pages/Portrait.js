@@ -1,12 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
-
+import { CursorContext } from '../context/CursorContext';
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import {fetchData} from '../fetchData'
+
 import Picture from './Picture'
 
-import { CursorContext } from '../context/CursorContext';
+
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 

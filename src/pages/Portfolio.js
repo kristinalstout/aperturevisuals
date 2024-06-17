@@ -22,18 +22,15 @@ const Portfolio = () => {
     fetchData(query).then((data) => setPictures(data));
   }, []);
 
-  
-
-
   return (
   <section 
   initial = {{opacity:0, y:'100%'}} 
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
-  className='section overflow-auto'>
+  className='section overflow-auto '>
     <div className = 'container mx-auto h-full relative'>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8' >
+      <div className = ' flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8' >
         <motion.div 
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
@@ -41,9 +38,9 @@ const Portfolio = () => {
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'-80%'}}
         transition = {transition1}
-        className = 'flex flex-col lg:items-start'>
-          <h1 className = 'h1'>Portfolio</h1>
-          <p className = 'mb-12 max-w-sm'>
+        className = 'flex flex-col lg:items-start '>
+          <h1 className = 'h1 text-center '>Portfolio</h1>
+          <p className = 'mb-12 max-w-sm text-center'>
             Click on a photo to view the collection
             <br/>
             <br/>
@@ -57,7 +54,7 @@ const Portfolio = () => {
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler} */}
  {/* grid-cols-2 lg:gap-2 col-auto */}
-        <div className = 'grid grid-cols-2 lg:gap-2'>
+        <div className = 'grid grid-cols-2 lg:gap-2 '>
           {pictures.map((item)=>{
             return( 
               <div key={`item-${item.id}`}>

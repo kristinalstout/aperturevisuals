@@ -8,8 +8,6 @@ import { CursorContext } from '../context/CursorContext';
 import {fetchData} from '../fetchData';
 import Picture from './Picture'
 
-// Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
-
 const Calvert = () => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)

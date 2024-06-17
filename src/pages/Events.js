@@ -20,24 +20,9 @@ const Events = () => {
 
   useEffect(() => {
     fetchData(query).then((data) => setPictures(data));
-    
+
   }, []);
-
-  // useEffect(() => {
-  //   const fetchMainPicture = async () => {
-  //     const query = `*[_type == "picture" && collection == 'events']`;
-
-  //     try {
-  //       const data = await client.fetch(query);
-  //       setMainPicture(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-
-  //   fetchMainPicture();
-  // }, []);
-
+  
   return (
   <section 
   initial = {{opacity:0, y:'100%'}} 

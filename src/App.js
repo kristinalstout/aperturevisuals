@@ -1,16 +1,14 @@
 import React, {useContext,useEffect,useState} from 'react';
-import {client} from './client'
-import Header from './components/Header'
-import AnimRoutes from './components/AnimRoutes';
 import {BrowserRouter as Router} from 'react-router-dom'
 import { SpeedInsights } from "@vercel/speed-insights/react"
-
 import {motion} from 'framer-motion'
 import { CursorContext } from './context/CursorContext';
 
+import Header from './components/Header'
+import AnimRoutes from './components/AnimRoutes';
 
 const App = () => {
-  
+
   const{cursorVariants, cursorBG } = useContext(CursorContext)
 
   return (
