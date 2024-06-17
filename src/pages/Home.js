@@ -68,12 +68,12 @@ style={{ backgroundImage: `url(${home.pictureUrl})` }}
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: '-50%' }}
     transition={transition1}
-    className="w-full pt-36 pb-14 lg:max-w-auto lg:items-start z-10 left-0 flex flex-col justify-center"
+    className="w-full pt-36 pb-14 lg:max-w-auto text-center lg:items-start z-10 left-0 flex items-center flex-col justify-center"
   >
-    <h1 className="h1 text-white text-opacity-70 text-center lg:text-left mb-4 tracking-normal">
+    <h1 className="h1 text-white text-opacity-70 flex text-center lg:text-left mb-4 tracking-normal">
       {home.title}
     </h1>
-    <p className="text-[26px] lg:text-[36px] lg:text-left lg:mb-12 font-primary text-center text-white text-opacity-80 mb-4">
+    <p className="text-white text-opacity-80 text-center lg:text-left mb-4 lg:mb-12 font-primary text-[26px] lg:text-[36px]">
       {home.byline}
     </p>
     <Link to="/Contact" className="btn bg-[#060100] bg-opacity-80 text-white text-opacity-90 mb-[30px] text-center">
