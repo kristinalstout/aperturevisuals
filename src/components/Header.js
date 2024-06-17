@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import Socials from './Socials'
 
-import RoughLogo from '../img/header/roughlogo.jpg'
+import RoughLogo from '../img/file.png'
 import MobileNav from './MobileNav'
 import {Link} from 'react-router-dom'
 

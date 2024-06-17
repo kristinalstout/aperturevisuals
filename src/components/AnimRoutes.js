@@ -18,9 +18,9 @@ import { fetchData} from '../fetchData'
 const AnimRoutes = () => {
   const location = useLocation()
 
-
   return (
-  <AnimatePresence initial={true} mode = 'wait'>
+
+<AnimatePresence initial={true} mode = 'wait'>
     <Routes key = {location.pathname} location = {location}>
       <Route path='/' element={<Home />}/>
       <Route path='/about' element={<About/>}/>

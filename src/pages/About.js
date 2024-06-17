@@ -17,7 +17,7 @@ const About = () => {
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
-  className='section overflow-auto'>
+  className='section overflow-auto '>
     <div   
     onMouseEnter = {mouseEnterHandler}
     onMouseLeave = {mouseLeaveHandler}  

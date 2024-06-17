@@ -6,7 +6,7 @@
   body {
     @apply 
     overflow-hidden 
-    text-primary 
+
     font-secondary 
     bg-white;
   }
@@ -38,7 +38,6 @@
     uppercase 
     font-secondary 
     font-semibold 
-    bg-primary 
     text-white;
   }
 }
