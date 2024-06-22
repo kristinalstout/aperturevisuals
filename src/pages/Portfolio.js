@@ -25,7 +25,7 @@ const Portfolio = () => {
   // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (
     <section className ='section overflow-auto'>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8 lg:pb-36' >
+      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-36 pb-36' >
         <motion.div 
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
