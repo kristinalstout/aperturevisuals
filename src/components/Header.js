@@ -15,7 +15,7 @@ const Header = () => {
   return <header className='fixed w-full 
   px-[30px] lg:px-[100px] 
   z-30 h-[100px] lg:h-[140px] 
-  flex items-center bg-[#060100] bg-opacity-50 text-white text-opacity-80'>
+  flex items-center bg-[#120604] bg-opacity-50 text-white text-opacity-80'>
     <div 
     className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
       <Link  
