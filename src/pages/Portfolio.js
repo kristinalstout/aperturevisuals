@@ -25,7 +25,7 @@ const Portfolio = () => {
   // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (
     <section className ='section overflow-auto'>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-36 pb-36' >
+      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-36 lg:pb-36' >
         <motion.div 
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
@@ -51,7 +51,7 @@ const Portfolio = () => {
               .filter((_,index)=>index %2 === 0)
               .map((item)=>{
                 return( 
-                  <div key={`item-${item.id}`} className='lg:p-2'>
+                  <div key={`item-${item.id}`} className='p-2'>
                       <img className = ' shadow lg:rounded-lg'
                       src={urlFor(item.picture).url()}
                       alt={item.name}
@@ -65,7 +65,7 @@ const Portfolio = () => {
                 .filter((_,index)=>index %2 !== 0)
                 .map((item)=>{
                   return( 
-                    <div key={`item-${item.id}`} className='lg:p-2'>
+                    <div key={`item-${item.id}`} className='p-2'>
 
                         <img className = ' shadow lg:rounded-lg'
                         src={urlFor(item.picture).url()}
