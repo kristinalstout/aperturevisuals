@@ -32,26 +32,26 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   useEffect(() => {
 
     const portfolioDiv = document.getElementById('portfolio');
-    const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+
 
     const handleScroll = () => {
       const currentScroll = portfolioDiv.scrollTop
-      if (currentScroll >= 0 && currentScroll <= maxScroll) {
+      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
 
-
-      if (currentScroll <= 0) {
-        setHeaderVisible(true)
-        scrollUpDistance.current = 0 //reset scroll up distance
-      }else if(currentScroll >lastScroll.current){
-        setHeaderVisible(false)
-        scrollUpDistance.current = 0 //reset scroll up distance
-      }else if (currentScroll < lastScroll.current){
-        scrollUpDistance.current += lastScroll.current - currentScroll
-        if (scrollUpDistance.current >= scrollUpThreshold) {
-        setHeaderVisible(true)
+      if (currentScroll <= maxScroll) {
+        if (currentScroll <= 0) {
+          setHeaderVisible(true)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if(currentScroll >lastScroll.current){
+          setHeaderVisible(false)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if (currentScroll < lastScroll.current){
+          scrollUpDistance.current += lastScroll.current - currentScroll
+          if (scrollUpDistance.current >= scrollUpThreshold) {
+          setHeaderVisible(true)
+          }
         }
       }
-    }
       console.log("current scroll:",currentScroll)
       console.log("scroll up distance:",scrollUpDistance)
       console.log("last scroll:",lastScroll)
