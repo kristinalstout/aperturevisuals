@@ -36,9 +36,9 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
 
     const handleScroll = () => {
       const currentScroll = portfolioDiv.scrollTop
-      if (currentScroll < 0 || currentScroll > maxScroll) {
-        return;
-      }
+      if (currentScroll >= 0 && currentScroll <= maxScroll) {
+
+
       if (currentScroll <= 0) {
         setHeaderVisible(true)
         scrollUpDistance.current = 0 //reset scroll up distance
@@ -51,6 +51,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         setHeaderVisible(true)
         }
       }
+    }
       console.log("current scroll:",currentScroll)
       console.log("scroll up distance:",scrollUpDistance)
       console.log("last scroll:",lastScroll)
