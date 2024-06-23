@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 
 import Socials from './Socials'
 
@@ -8,14 +8,15 @@ import {Link} from 'react-router-dom'
 
 import { CursorContext } from '../context/CursorContext';
 
-const Header = () => {
+const Header = ({headerVisible}) => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 
-  return <header className='fixed w-full 
+
+  return <header className={`fixed w-full 
   px-[30px] lg:px-[100px] 
   z-30 h-[100px] lg:h-[140px] 
-  flex items-center bg-[#120604] bg-opacity-50 text-white text-opacity-80'>
+  flex items-center bg-[#120604] bg-opacity-50 text-white text-opacity-80 ${headerVisible ? 'top-0' : 'invisible'}`}>
     <div 
     className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
       <Link  

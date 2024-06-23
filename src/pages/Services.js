@@ -1,8 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import {fetchData} from '../fetchData';
-import KrisCherryBlossom from '../img/portfolio/portrait/krischerryblossom.jpg'
-import Shirt from '../img/portfolio/event/shirt.jpg'
-import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import ServiceCard from './ServiceCard'
@@ -37,7 +34,7 @@ useEffect(() => {
   
     {pictures.map((item)=>{
             return( 
-              <div key={`item-${item.id}`}>
+              <div key={`item-${item.name}`}>
                 <ServiceCard item = {item}/>
               </div>
             )

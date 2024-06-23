@@ -54,7 +54,7 @@ const Events = () => {
         <div className = 'grid grid-cols-2 lg:gap-2'>
           {pictures.map((item)=>{
             return( 
-              <div key={`item-${item.id}`}>
+              <div key={`item-${item.name}`}>
                 <Picture item = {item}/>
               </div>
             )

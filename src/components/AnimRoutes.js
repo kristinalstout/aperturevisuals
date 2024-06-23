@@ -15,7 +15,7 @@ import { urlFor } from '../imageUrl';
 
 import { fetchData} from '../fetchData'
 
-const AnimRoutes = () => {
+const AnimRoutes = ({setHeaderVisible, headerVisible}) => {
   const location = useLocation()
 
   return (
@@ -24,7 +24,7 @@ const AnimRoutes = () => {
     <Routes key = {location.pathname} location = {location}>
       <Route path='/' element={<Home />}/>
       <Route path='/about' element={<About/>}/>
-      <Route path='/portfolio' element={<Portfolio />}/>
+      <Route path='/portfolio' element={<Portfolio setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/portraits' element={<Portraits/>}/>
       <Route path='/calvert' element={<Calvert/>}/>
       <Route path='/events' element={<Events/>}/>

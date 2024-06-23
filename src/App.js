@@ -10,12 +10,18 @@ import AnimRoutes from './components/AnimRoutes';
 const App = () => {
 
   const{cursorVariants, cursorBG } = useContext(CursorContext)
+  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  const [headerVisible, setHeaderVisible] = useState(true)
+  const [showUp, setShowUp] = useState(false)
 
+window.addEventListener('scroll', () => {
+  console.log('scrolling')
+})
   return (
   <>
   <Router>
-    <Header/>
-    <AnimRoutes />
+    <Header headerVisible = {headerVisible}/>
+    <AnimRoutes setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible}/>
     <SpeedInsights />
   </Router>
   <motion.div 
