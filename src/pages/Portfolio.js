@@ -16,7 +16,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
     
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   const [pictures, setPictures] = useState([]);
-  const lastScroll = useRef(0)
+
   
   const query = `*[_type == "picture"]`
 
@@ -25,6 +25,9 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   }, []);
   
 
+  const lastScroll = useRef(0)
+  const scrollUpThreshold = 10
+  const scrollUpDistance = useRef(0)
 
   useEffect(() => {
 
@@ -35,11 +38,15 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
     
       if (currentScroll <= 0) {
         setHeaderVisible(true)
-      }
-      if (currentScroll >lastScroll.current){
+        scrollUpDistance.current = 0 //reset scroll up distance
+      }else if(currentScroll >lastScroll.current){
         setHeaderVisible(false)
+        scrollUpDistance.current = 0 //reset scroll up distance
       }else if (currentScroll < lastScroll.current){
+        scrollUpDistance.current += lastScroll.current - currentScroll
+        if (scrollUpDistance.current >= scrollUpThreshold) {
         setHeaderVisible(true)
+        }
       }
 
       lastScroll.current = currentScroll
@@ -64,10 +71,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         transition = {transition1}
         className = 'lg:w-1/3  sticky p-4 '>
           <h1 className = 'h1 text-center mb-4'>Portfolio</h1>
-          <p className = 'mb-12  text-center'>
-            Click on a photo to view the collection
-          </p>
-          <Link to = {'/contact'} className = 'btn mb-[30px] mx-auto lg:mx-0'> 
+          <Link to = {'/contact'} className = 'btn mb-[10px] mx-auto lg:mx-0'> 
             Schedule a shoot
           </Link>
         </motion.div>
