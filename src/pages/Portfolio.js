@@ -26,7 +26,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   
 
   const lastScroll = useRef(0)
-  const scrollUpThreshold = 30
+  const scrollUpThreshold = 50
   const scrollUpDistance = useRef(0)
 
   useEffect(() => {
@@ -48,7 +48,9 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         setHeaderVisible(true)
         }
       }
-
+      console.log("current scroll:",currentScroll)
+      console.log("scroll up distance:",scrollUpDistance)
+      console.log("last scroll:",lastScroll)
       lastScroll.current = currentScroll
     }
 
