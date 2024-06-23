@@ -32,10 +32,13 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   useEffect(() => {
 
     const portfolioDiv = document.getElementById('portfolio');
+    const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
 
     const handleScroll = () => {
       const currentScroll = portfolioDiv.scrollTop
-    
+      if (currentScroll < 0 || currentScroll > maxScroll) {
+        return;
+      }
       if (currentScroll <= 0) {
         setHeaderVisible(true)
         scrollUpDistance.current = 0 //reset scroll up distance
@@ -63,7 +66,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (
     <section className ='section overflow-auto'>
-      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-36' : 'pt-0'} pb-0 lg:pb-36`} >
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
         <motion.div 
         onMouseEnter = {mouseEnterHandler}
         onMouseLeave = {mouseLeaveHandler}
@@ -80,7 +83,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         <div 
         // ref = {scrollRef}
         id = 'portfolio'
-        className = 'lg:w-2/3 h-screen overflow-y-scroll p-8 pt-0 lg:pt-40'>
+        className = 'lg:w-2/3 h-screen overflow-y-scroll p-8 pt-0 lg:pt-48'>
           {/*         <div className = 'w-2/3 h-screen  p-4 grid grid-cols-2 lg:gap-2 mt-10 '>
           <div className = 'items-center'> */}
           <div className = 'flex flex-wrap -mx-2'>
