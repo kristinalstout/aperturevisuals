@@ -21,7 +21,7 @@ const About = () => {
         {/* add breakpoint for md screen */}
         <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-60 '>
           <div className = 'flex-1 max-h-96 lg:max-h-max order-2 mt-10  mb-10 pb-8 lg:order-none'>
-            <img src = {Mike1} alt = ''/>
+            <img src = {Mike} alt = ''/>
           </div>
           <div className = 'flex-1 pt-40 lg:pt-0 lg:w-auto flex flex-col justify-center items-center'>
             <h1 className = 'h1'>Hi, I'm Mike</h1>

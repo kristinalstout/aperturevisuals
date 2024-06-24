@@ -6,6 +6,7 @@ import { CursorContext } from './context/CursorContext';
 
 import Header from './components/Header'
 import AnimRoutes from './components/AnimRoutes';
+import { fetchData} from './fetchData'
 
 const App = () => {
 
@@ -13,15 +14,19 @@ const App = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [headerVisible, setHeaderVisible] = useState(true)
   const [showUp, setShowUp] = useState(false)
+  const [pictureId, setPictureId] = useState([])
+  const query = `*[_type == "picture"]{id}`
 
-window.addEventListener('scroll', () => {
-  console.log('scrolling')
-})
+  useEffect(() => {
+    fetchData(query).then((data) => 
+      setPictureId(data.map(item => item.id)))
+},[])
+
   return (
   <>
   <Router>
     <Header headerVisible = {headerVisible}/>
-    <AnimRoutes setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible}/>
+    <AnimRoutes setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible} pictureId = {pictureId}/>
     <SpeedInsights />
   </Router>
   <motion.div 

@@ -23,7 +23,6 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   useEffect(() => {
     fetchData(query).then((data) => setPictures(data));
   }, []);
-  
 
   const lastScroll = useRef(0)
   const scrollUpThreshold = 50
@@ -32,7 +31,6 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
   useEffect(() => {
 
     const portfolioDiv = document.getElementById('portfolio');
-
 
     const handleScroll = () => {
       const currentScroll = portfolioDiv.scrollTop
@@ -52,9 +50,6 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
           }
         }
       }
-      console.log("current scroll:",currentScroll)
-      console.log("scroll up distance:",scrollUpDistance)
-      console.log("last scroll:",lastScroll)
       lastScroll.current = currentScroll
     }
 
@@ -63,6 +58,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
       portfolioDiv.removeEventListener('scroll', handleScroll)
     }
   },[])
+
 
   // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (

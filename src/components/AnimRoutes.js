@@ -8,6 +8,7 @@ import Portraits from '../pages/Portrait'
 import StreetPhotography from '../pages/StreetPhotography'
 import Events from '../pages/Events'
 import Services from '../pages/Services'
+import SinglePicturePage from '../pages/SinglePicturePage'
 
 import {Routes, Route, useLocation} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
@@ -15,7 +16,7 @@ import { urlFor } from '../imageUrl';
 
 import { fetchData} from '../fetchData'
 
-const AnimRoutes = ({setHeaderVisible, headerVisible}) => {
+const AnimRoutes = ({setHeaderVisible, headerVisible, pictureId}) => {
   const location = useLocation()
 
   return (
@@ -26,6 +27,7 @@ const AnimRoutes = ({setHeaderVisible, headerVisible}) => {
       <Route path='/about' element={<About/>}/>
       <Route path='/portfolio' element={<Portfolio setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/portraits' element={<Portraits/>}/>
+      <Route path = '/portfolio/:id' element={<SinglePicturePage pictureId = {pictureId}/>}/>
       <Route path='/calvert' element={<Calvert/>}/>
       <Route path='/events' element={<Events/>}/>
       <Route path='/street-photography' element={<StreetPhotography/>}/>
