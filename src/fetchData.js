@@ -1,5 +1,4 @@
 import { client } from './client';
-import {useEffect, useState} from 'react'
 
 export const fetchData = async (query) => {
     try {

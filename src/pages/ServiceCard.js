@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { urlFor } from '../imageUrl';
 import {Link} from 'react-router-dom'
 
@@ -10,8 +10,9 @@ function ServiceCard({item}) {
     <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16'>
 <div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden'>
           <img
-              src={urlFor(item.picture).url()}
-              alt={item.name} />
+            src={urlFor(item.picture).url()}
+            alt={item.type} 
+          />
       </div>
       <div className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
             <h1 className = 'h1'>
@@ -20,6 +21,9 @@ function ServiceCard({item}) {
             <p className = 'mb-12 max-w-sm'>
                 {item.description}
             </p>
+            <Link to = {`/${item.collection.name}`} className = 'btn mb-[10px] mx-auto lg:mx-0'>
+              View {item.type}
+            </Link>
           </div>
           
           </div>

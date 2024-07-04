@@ -19,23 +19,26 @@ const Socials = () => {
     <ul className = 'flex gap-x-4'>
       <li>
         <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
-        target = '_blank'>
+        target = '_blank'
+        rel='noreferrer'>
           <ImFacebook/>
         </a>
       </li>
 
       <li>
         <a href = 'https://www.instagram.com/aperturevis/'
-        target = '_blank'>
+        target = '_blank'
+        rel='noreferrer'>
           <ImInstagram/>
         </a>
       </li>      
-      <li>
+      {/* <li>
         <a href = 'http://www.twitter.com'
-        target = '_blank'>
+        target = '_blank'
+        rel='noreferrer'>
           <ImPinterest/>
         </a>
-      </li>
+      </li> */}
     </ul>
   </div>
   )

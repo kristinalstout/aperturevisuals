@@ -1,88 +1,88 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
 import {fetchData} from '../fetchData';
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import ServiceCard from './ServiceCard'
 
 import { CursorContext } from '../context/CursorContext';
+import {Link, useParams, useNavigate} from 'react-router-dom'
 
-
-
-const Services = () => {
-
+const Services = ({setHeaderVisible, headerVisible}) => {
+  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 const [pictures, setPictures] = useState([]);
 
-const query = `*[_type == "service"]`
+const navigate = useNavigate()
+const [loading, setLoading] = useState(true);
+const [collections, setCollections] = useState(null);
+
+const lastScroll = useRef(0)
+const scrollUpThreshold = 50
+const scrollUpDistance = useRef(0)
+
+const query = `*[_type == "service"]{
+  picture,type,description,collection->{name}
+}`
 
 useEffect(() => {
   fetchData(query).then((data) => setPictures(data));
 
-}, []);
+});
 
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+useEffect(() => {
+  
+  const portfolioDiv = document.getElementById('portfolio');
+  if (portfolioDiv) { // Check if the element exists
+    const handleScroll = () => {
+      const currentScroll = portfolioDiv.scrollTop;
+      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+
+      if (currentScroll <= maxScroll) {
+        if (currentScroll <= 0) {
+          setHeaderVisible(true);
+          scrollUpDistance.current = 0; // Reset scroll up distance
+        } else if (currentScroll > lastScroll.current) {
+          setHeaderVisible(false);
+          scrollUpDistance.current = 0; // Reset scroll up distance
+        } else if (currentScroll < lastScroll.current) {
+          scrollUpDistance.current += lastScroll.current - currentScroll;
+          if (scrollUpDistance.current >= scrollUpThreshold) {
+            setHeaderVisible(true);
+          }
+        }
+      }
+      lastScroll.current = currentScroll;
+    };
+
+    portfolioDiv.addEventListener('scroll', handleScroll);
+    return () => {
+      portfolioDiv.removeEventListener('scroll', handleScroll);
+    };
+  }
+});
+
+
   return (
-  <motion.section 
+  <motion.section
+  id = 'portfolio'
   initial = {{opacity:0, y:'100%'}} 
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
   className='section overflow-auto'>
-    <div   
+    <div
+
     onMouseEnter = {mouseEnterHandler}
     onMouseLeave = {mouseLeaveHandler}  
     className = 'container mx-auto h-full relative '>  
   
     {pictures.map((item)=>{
             return( 
-              <div key={`item-${item.name}`}>
+              <div key={`item-${item.type}`}>
                 <ServiceCard item = {item}/>
               </div>
             )
           })}
      </div>
-     {/*   <div className = 'flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden'>
-          <img src = {KrisCherryBlossom} alt = ''/>
-    
-        </div>
-        <motion.div 
-        initial = {{opacity:0, y:'-80%'}} 
-        animate = {{opacity:1,y:0}}
-        exit = {{opacity:0,y:'-80%'}}
-        transition = {transition1}
-        className = 'flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
-          <h1 className = 'h1'>Portraits</h1>
-          <p className = 'mb-12 max-w-sm'>
-            Single & Group
-            <br/>
-            <br/>
-
-          </p>
-          <Link to = {'/contact'} className = 'btn'> 
-            View my work
-          </Link>
-        </motion.div>
-      </div>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16'> */}
-
-        {/* <motion.div 
-        initial = {{opacity:0, y:'-80%'}} 
-        animate = {{opacity:1,y:0}}
-        exit = {{opacity:0,y:'-80%'}}
-        transition = {transition1}
-        className = 'flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
-          <h1 className = 'h1'>Events</h1>
-          <p className = 'mb-12 max-w-sm'>
-            Corporate, Group, Organizations
-            <br/>
-            <br/>
-
-          </p>
-          <Link to = {'/contact'} className = 'btn'> 
-            View my work
-          </Link>
-        </motion.div>        
-     */}  
-
   </motion.section>
   )
 };

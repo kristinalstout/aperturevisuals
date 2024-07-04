@@ -1,4 +1,4 @@
-import React, {useContext, useRef} from 'react';
+import React, {useContext, useRef, useEffect} from 'react';
 
 import Transparent from '../img/contact/transparent.png'
 import {motion} from 'framer-motion'
@@ -6,11 +6,49 @@ import {transition1} from '../transitions'
 import Socials from '../components/Socials'
 import { CursorContext } from '../context/CursorContext';
 import emailjs from '@emailjs/browser'
+import Mike1 from '../img/about/mike1.jpg'
 
-const Contact = () => {
+const Contact = ({setHeaderVisible, headerVisible}) => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   const form = useRef();
+
+  const lastScroll = useRef(0)
+  const scrollUpThreshold = 50
+  const scrollUpDistance = useRef(0)
+
+
+
+  useEffect(() => {
+
+    const portfolioDiv = document.getElementById('portfolio');
+
+    const handleScroll = () => {
+      const currentScroll = portfolioDiv.scrollTop
+      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+
+      if (currentScroll <= maxScroll) {
+        if (currentScroll <= 0) {
+          setHeaderVisible(true)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if(currentScroll >lastScroll.current){
+          setHeaderVisible(false)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if (currentScroll < lastScroll.current){
+          scrollUpDistance.current += lastScroll.current - currentScroll
+          if (scrollUpDistance.current >= scrollUpThreshold) {
+          setHeaderVisible(true)
+          }
+        }
+      }
+      lastScroll.current = currentScroll
+    }
+
+    portfolioDiv.addEventListener('scroll', handleScroll)
+    return () => {
+      portfolioDiv.removeEventListener('scroll', handleScroll)
+    }
+  })
 
     const sendEmail = (e) => {
       e.preventDefault();
@@ -39,9 +77,10 @@ const Contact = () => {
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
+  id = 'portfolio'
   className='section bg-white overflow-auto'>
     <div className = 'container mx-auto h-full'>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start pt-36 gap-x-8 text-center lg:text-left'>
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start pt-36 ${headerVisible ? 'pt-24' : 'pt-0'} gap-x-8 text-center lg:text-left`}>
         <motion.div
         initial = {{opacity:0, y:'100%'}} 
         animate = {{opacity:1, y:0}}
@@ -97,8 +136,8 @@ const Contact = () => {
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'100%'}}
         transition = {{transition: transition1, duration: 1.5}}
-        className = 'lg:flex-1'>
-          <img src={Transparent} alt=''/>
+        className = {`lg:flex-1`}>
+          <img src={Mike1} alt=''/>
         </motion.div>
       </div>
       <div>

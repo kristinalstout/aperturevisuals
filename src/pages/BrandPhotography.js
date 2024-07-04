@@ -9,10 +9,9 @@ import Picture from './Picture'
 import { usePictures } from '../context/PictureContext'
 
 
-
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 
-const Portrait = ({setHeaderVisible, headerVisible}) => {
+const BrandPhotography = ({setHeaderVisible, headerVisible}) => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   const pictures = usePictures()
@@ -20,7 +19,7 @@ const Portrait = ({setHeaderVisible, headerVisible}) => {
   const [loading, setLoading] = useState(true);
   const [collections, setCollections] = useState(null);
 
-  // const query = `*[_type == "picture" && collection._ref == '6e378c25-8ce0-422c-bf95-8e7ba3736193']`
+  // const query = `*[_type == "picture" && collection._ref == '741a4c1e-e58c-4523-bf98-14346901d403']`
 
   // useEffect(() => {
   //   loadPictures(query)
@@ -33,7 +32,7 @@ const Portrait = ({setHeaderVisible, headerVisible}) => {
 
   useEffect(() => {
     
-    const portfolioDiv = document.getElementById('portfolio');
+    const portfolioDiv = document.getElementById('brand');
     if (portfolioDiv) { // Check if the element exists
       const handleScroll = () => {
         const currentScroll = portfolioDiv.scrollTop;
@@ -62,10 +61,42 @@ const Portrait = ({setHeaderVisible, headerVisible}) => {
       };
     }
   });
+ 
+
+  // useEffect(() => {
+
+  //   const portfolioDiv = document.getElementById('brand');
+
+  //   const handleScroll = () => {
+  //     const currentScroll = portfolioDiv.scrollTop
+  //     const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+
+  //     if (currentScroll <= maxScroll) {
+  //       if (currentScroll <= 0) {
+  //         setHeaderVisible(true)
+  //         scrollUpDistance.current = 0 //reset scroll up distance
+  //       }else if(currentScroll >lastScroll.current){
+  //         setHeaderVisible(false)
+  //         scrollUpDistance.current = 0 //reset scroll up distance
+  //       }else if (currentScroll < lastScroll.current){
+  //         scrollUpDistance.current += lastScroll.current - currentScroll
+  //         if (scrollUpDistance.current >= scrollUpThreshold) {
+  //         setHeaderVisible(true)
+  //         }
+  //       }
+  //     }
+  //     lastScroll.current = currentScroll
+  //   }
+
+  //   portfolioDiv.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     portfolioDiv.removeEventListener('scroll', handleScroll)
+  //   }
+  // },[setHeaderVisible])
 
   useEffect(() => {
     if (pictures.length > 0) {
-      const collectionPics = pictures.filter((pic)=>pic.collection?.name ==='portraits')
+      const collectionPics = pictures.filter((pic)=>pic.collection?.name ==='brand-photography')
       setCollections(collectionPics)
       setLoading(false);
     }
@@ -86,14 +117,13 @@ if (loading) {
         exit = {{opacity:0, y:'-80%'}}
         transition = {transition1}
         className = 'lg:w-1/3  sticky p-4 '>
-          <h1 className = 'h1 text-center mb-4'>Portraits</h1>
+          <h1 className = 'h1 text-center mb-4'>Brand Photography</h1>
           <Link to = {'/contact'} className = 'btn mb-[10px] mx-auto lg:mx-0'> 
             Schedule a shoot
           </Link>
         </motion.div>
         <div 
-        // ref = {scrollRef}
-        id = 'portfolio'
+        id = 'brand'
         className = 'lg:w-2/3 h-screen overflow-y-scroll p-8 pt-0 lg:pt-48'>
           {/*         <div className = 'w-2/3 h-screen  p-4 grid grid-cols-2 lg:gap-2 mt-10 '>
           <div className = 'items-center'> */}
@@ -105,7 +135,7 @@ if (loading) {
               .map((item)=>{
                 return( 
                   <div key={`item-${item.id}`} className='p-2'>
-                      <Picture item = {item} source='portraits'/>
+                      <Picture item = {item} source='brand-photography'/>
                     </div>
                 )
               })}
@@ -116,7 +146,7 @@ if (loading) {
                 .map((item)=>{
                   return( 
                     <div key={`item-${item.id}`} className='p-2'>
-                      <Picture item = {item} source='portraits'/>
+                      <Picture item = {item} source='brand-photography'/>
                     </div>
                   )
                 })}
@@ -128,4 +158,4 @@ if (loading) {
   )
 };
 
-export default Portrait;
+export default BrandPhotography;

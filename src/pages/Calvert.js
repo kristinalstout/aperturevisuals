@@ -8,16 +8,16 @@ import { CursorContext } from '../context/CursorContext';
 import {fetchData} from '../fetchData';
 import Picture from './Picture'
 
-const Calvert = () => {
+const Calvert = ({pictures}) => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
-  const [pictures, setPictures] = useState([]);
 
-  const query = `*[_type == "picture" && collection._ref == '6c250f50-2338-4175-bb5a-d56cdf5290f3']`
 
-  useEffect(() => {
-    fetchData(query).then((data) => setPictures(data));
-  }, []);
+  // const query = `*[_type == "picture" && collection._ref == '6c250f50-2338-4175-bb5a-d56cdf5290f3']`
+
+  // useEffect(() => {
+  //   loadPictures(query)
+  // },[loadPictures,query]);
 
   return (
   <section 

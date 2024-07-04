@@ -5,7 +5,8 @@ import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import { CursorContext } from '../context/CursorContext';
 import Picture from './Picture'
-import { urlFor } from '../imageUrl';
+import { usePictures } from '../context/PictureContext'
+// import { urlFor } from '../imageUrl';
 
 
 import { fetchData} from '../fetchData'
@@ -15,18 +16,12 @@ import { fetchData} from '../fetchData'
 const Portfolio = ({setHeaderVisible, headerVisible}) => {
     
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
-  const [pictures, setPictures] = useState([]);
-
-  
-  const query = `*[_type == "picture"]`
-
-  useEffect(() => {
-    fetchData(query).then((data) => setPictures(data));
-  }, []);
 
   const lastScroll = useRef(0)
   const scrollUpThreshold = 50
   const scrollUpDistance = useRef(0)
+  const pictures = usePictures()
+
 
   useEffect(() => {
 
@@ -57,9 +52,9 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
     return () => {
       portfolioDiv.removeEventListener('scroll', handleScroll)
     }
-  },[])
+  })
 
-
+  // console.log(pictures)
   // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (
     <section className ='section overflow-auto'>
@@ -86,6 +81,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
           <div className = 'flex flex-wrap -mx-2'>
             <div className = 'w-1/2 '>
               {pictures
+              .sort((a,b)=>a.id - b.id)
               .filter((_,index)=>index %2 === 0)
               .map((item)=>{
                 return( 
@@ -97,6 +93,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
             </div>
             <div className = 'w-1/2 '>
               {pictures
+                .sort((a,b)=>a.id - b.id)
                 .filter((_,index)=>index %2 !== 0)
                 .map((item)=>{
                   return( 

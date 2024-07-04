@@ -1,4 +1,4 @@
-import React, {useContext,useEffect,useState} from 'react';
+import React, {useContext,useEffect,useState, useCallback} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import { SpeedInsights } from "@vercel/speed-insights/react"
 import {motion} from 'framer-motion'
@@ -11,22 +11,35 @@ import { fetchData} from './fetchData'
 const App = () => {
 
   const{cursorVariants, cursorBG } = useContext(CursorContext)
-  const [prevScrollPos, setPrevScrollPos] = useState(0)
+  // const [prevScrollPos, setPrevScrollPos] = useState(0)
   const [headerVisible, setHeaderVisible] = useState(true)
-  const [showUp, setShowUp] = useState(false)
+  // const [showUp, setShowUp] = useState(false)
   const [pictureId, setPictureId] = useState([])
-  const query = `*[_type == "picture"]{id}`
+  // const [pictures,setPictures] = useState([])
+  const idQuery = `*[_type == "picture"]{id}`
+
 
   useEffect(() => {
-    fetchData(query).then((data) => 
+    fetchData(idQuery).then((data) => 
       setPictureId(data.map(item => item.id)))
-},[])
+},[idQuery])
+
+  // const loadPictures = useCallback(async() => {
+  //   const data = await fetchData(`*[_type == "picture"]`)
+  //   setPictures(data)
+  //   // fetchData(query).then((data) => setPictures(data));
+  // });
+
+  // useEffect(() => {
+  //   loadPictures();
+  // }, [loadPictures]);
+
 
   return (
   <>
   <Router>
     <Header headerVisible = {headerVisible}/>
-    <AnimRoutes setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible} pictureId = {pictureId}/>
+    <AnimRoutes  setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible} pictureId = {pictureId}/>
     <SpeedInsights />
   </Router>
   <motion.div 

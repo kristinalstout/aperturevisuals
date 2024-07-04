@@ -1,20 +1,20 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
-import Walking from '../img/home/walking.jpg'
+
 import {Link} from 'react-router-dom'
-import {motion} from 'framer-motion'
-import {transition1} from '../transitions'
-import Mike1 from '../img/about/mike1.jpg'
+// import {motion} from 'framer-motion'
+// import {transition1} from '../transitions'
+// import Mike1 from '../img/about/mike1.jpg'
 import Mike from '../img/about/mike.jpg'
 
-import { CursorContext } from '../context/CursorContext';
+// import { CursorContext } from '../context/CursorContext';
 
 // Render all pictures in portfolio, then include link to pictures that are tagged with types in Services. When a picture in a tag or on the portfolio page is clicked, render page with just picture
 
 
 
 const About = () => {
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  // const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   return (
     <section className = 'section overflow-y-scroll'>
       <div className = 'container mx-auto relative'>

@@ -8,16 +8,16 @@ import { CursorContext } from '../context/CursorContext';
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 
-const DC = () => {
+const DC = ({pictures}) => {
 
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
-  const [pictures, setPictures] = useState([]);
 
-  const query = `*[_type == "picture" && collection._ref == '6f8e9bac-0ae2-4316-807d-340c532ad174']`
 
-  useEffect(() => {
-    fetchData(query).then((data) => setPictures(data));
-  }, []);
+  // const query = `*[_type == "picture" && collection._ref == '6f8e9bac-0ae2-4316-807d-340c532ad174']`
+
+  // useEffect(() => {
+  //   loadPictures(query)
+  // },[loadPictures,query]);
 
   return (
   <section 
