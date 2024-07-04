@@ -24,8 +24,8 @@ const AnimRoutes = ({setHeaderVisible, headerVisible, pictureId}) => {
 
 <AnimatePresence initial={true} mode = 'wait'>
     <Routes key = {location.pathname} location = {location}>
-      <Route path='/' element={<Home />}/>
-      <Route path='/about' element={<About/>}/>
+      <Route path='/' element={<Home setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
+      <Route path='/about' element={<About setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/portfolio' element={<Portfolio  setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/portraits' element={<Portraits setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path = '/:source/:id' element={<SinglePicturePage pictureId = {pictureId} setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>

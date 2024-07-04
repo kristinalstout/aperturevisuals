@@ -66,7 +66,7 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
   }, [pictures, id]);
 
   if (loading) {
-      return console.log('Loading...')
+      return null
   }
   // console.log(source)
   const goToNextPicture = () => {
@@ -132,8 +132,8 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
         Previous Picture
       </button>
       <br/>
-      <Link to = {`/${singlePicture.collection?.name}`} className = 'btn mb-[30px] mx-auto justify-center lg:mx-0'> 
-        Back to Service
+      <Link to = {`/${src}`} className = 'btn mb-[30px] mx-auto justify-center lg:mx-0'> 
+        Back to Page
       </Link>
       <br/>
       <button 

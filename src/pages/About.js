@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect, useState, useRef} from 'react';
 
 
 import {Link} from 'react-router-dom'
@@ -13,10 +13,48 @@ import Mike from '../img/about/mike.jpg'
 
 
 
-const About = () => {
+const About = ({setHeaderVisible, headerVisible}) => {
   // const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+
+  const lastScroll = useRef(0)
+  const scrollUpThreshold = 50
+  const scrollUpDistance = useRef(0)
+
+  useEffect(() => {
+    
+    const portfolioDiv = document.getElementById('portfolio');
+    if (portfolioDiv) { // Check if the element exists
+      const handleScroll = () => {
+        const currentScroll = portfolioDiv.scrollTop;
+        const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+  
+        if (currentScroll <= maxScroll) {
+          if (currentScroll <= 0) {
+            setHeaderVisible(true);
+            scrollUpDistance.current = 0; // Reset scroll up distance
+          } else if (currentScroll > lastScroll.current) {
+            setHeaderVisible(false);
+            scrollUpDistance.current = 0; // Reset scroll up distance
+          } else if (currentScroll < lastScroll.current) {
+            scrollUpDistance.current += lastScroll.current - currentScroll;
+            if (scrollUpDistance.current >= scrollUpThreshold) {
+              setHeaderVisible(true);
+            }
+          }
+        }
+        lastScroll.current = currentScroll;
+      };
+  
+      portfolioDiv.addEventListener('scroll', handleScroll);
+      return () => {
+        portfolioDiv.removeEventListener('scroll', handleScroll);
+      };
+    }
+  });
   return (
-    <section className = 'section overflow-y-scroll'>
+    <section 
+    id = 'portfolio'
+    className = 'section overflow-y-scroll'>
       <div className = 'container mx-auto relative'>
         {/* add breakpoint for md screen */}
         <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-60 '>
