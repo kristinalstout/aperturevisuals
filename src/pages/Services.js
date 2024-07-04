@@ -68,12 +68,12 @@ useEffect(() => {
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
-  className='section overflow-auto'>
+  className='section overflow-auto '>
     <div
 
     onMouseEnter = {mouseEnterHandler}
     onMouseLeave = {mouseLeaveHandler}  
-    className = 'container mx-auto h-full relative '>  
+    className = {` container mx-auto h-full relative ${headerVisible ? 'pt-24' : 'pt-0'} lg:pb-36`}>  
   
     {pictures.map((item)=>{
             return( 

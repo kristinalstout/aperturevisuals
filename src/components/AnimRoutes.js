@@ -28,15 +28,15 @@ const AnimRoutes = ({setHeaderVisible, headerVisible, pictureId}) => {
       <Route path='/about' element={<About/>}/>
       <Route path='/portfolio' element={<Portfolio  setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/portraits' element={<Portraits setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
-      <Route path = '/portfolio/:id' element={<SinglePicturePage pictureId = {pictureId}/>}/>
+      <Route path = '/:source/:id' element={<SinglePicturePage pictureId = {pictureId} setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/calvert' element={<Calvert setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/brand-photography' element={<BrandPhotography setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}y/>}/>
       <Route path='/events' element={<Events setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/street-photography' element={<StreetPhotography setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/services' element = {<Services setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
-      <Route path="/events/:id" element={<SinglePicturePage  />} />
+      {/* <Route path="/events/:id" element={<SinglePicturePage  />} />
       <Route path="/portraits/:id" element={<SinglePicturePage  />} />
-      <Route path="/brand-photography/:id" element={<SinglePicturePage />} />
+      <Route path="/brand-photography/:id" element={<SinglePicturePage />} /> */}
       <Route path='/contact' element={<Contact setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
     </Routes>
   </AnimatePresence>

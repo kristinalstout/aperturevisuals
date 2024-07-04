@@ -8,11 +8,6 @@ import Picture from './Picture'
 import { usePictures } from '../context/PictureContext'
 // import { urlFor } from '../imageUrl';
 
-
-import { fetchData} from '../fetchData'
-
-// Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
-
 const Portfolio = ({setHeaderVisible, headerVisible}) => {
     
   const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
@@ -54,8 +49,6 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
     }
   })
 
-  // console.log(pictures)
-  // add tags to backend, many to many relationship. Should portfolio show all related pictures when clicked, or just skip straight to the individual picture
   return (
     <section className ='section overflow-auto'>
       <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
@@ -86,19 +79,19 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
               .map((item)=>{
                 return( 
                   <div key={`item-${item.id}`} className='p-2'>
-                      <Picture item = {item}/>
+                      <Picture item = {item} source='portfolio'/>
                     </div>
                 )
               })}
             </div>
-            <div className = 'w-1/2 '>
+            <div className = 'w-1/2'>
               {pictures
                 .sort((a,b)=>a.id - b.id)
                 .filter((_,index)=>index %2 !== 0)
                 .map((item)=>{
                   return( 
                     <div key={`item-${item.id}`} className='p-2'>
-                      <Picture item = {item}/>
+                      <Picture item = {item} source='portfolio'/>
                     </div>
                   )
                 })}

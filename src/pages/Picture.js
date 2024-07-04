@@ -23,8 +23,11 @@ function Picture({item,source}) {
       linkUrl = `/portfolio/${item.id}`; // Fallback URL
   }
 
+ 
   return (
-    <Link to ={{ pathname: linkUrl, state: { source }}}>
+    <Link to ={{ pathname: linkUrl }}
+    state = {{src: source}}>
+    
       <img 
         className = ' shadow lg:rounded-lg'
         src={urlFor(item.picture).url()}
