@@ -17,5 +17,10 @@ export const services = defineType({
         name: 'description',
         type: 'string',
       }),
+    defineField({
+      name: 'collection',
+      type: 'reference',
+      to: [{type: 'collection'}]
+    })
   ],
 })

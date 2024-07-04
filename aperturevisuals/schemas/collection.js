@@ -17,5 +17,9 @@ export const collection = defineType({
         name: 'description',
         type: 'string',
       }),
+      defineField({
+        name: 'display',
+        type: 'string',
+      }),
   ],
 })
