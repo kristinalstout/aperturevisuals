@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState, useRef} from 'react';
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 import {Link, useParams, useNavigate} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
@@ -13,7 +13,7 @@ import { usePictures } from '../context/PictureContext'
 
 const BrandPhotography = ({setHeaderVisible, headerVisible}) => {
 
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   const pictures = usePictures()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true);
@@ -110,8 +110,8 @@ if (loading) {
     <section className ='section overflow-auto'>
       <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
         <motion.div 
-        onMouseEnter = {mouseEnterHandler}
-        onMouseLeave = {mouseLeaveHandler}
+        // onMouseEnter = {mouseEnterHandler}
+        // onMouseLeave = {mouseLeaveHandler}
         initial = {{opacity:0, y:'-80%'}} 
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'-80%'}}

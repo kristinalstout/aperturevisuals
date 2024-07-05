@@ -7,14 +7,15 @@ function ServiceCard({item}) {
 // 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden
 // flex justify-center items-center w-full h-full
   return (
-    <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left lg:pt-16 '>
-<div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden'>
+    <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pb-16 '>
+<div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden '>
           <img
+            className = 'rounded-lg shadow'
             src={urlFor(item.picture).url()}
             alt={item.type} 
           />
       </div>
-      <div className='flex-1 pt-36 pb-14 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
+      <div className='flex-1  pb-12 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
             <h1 className = 'h1'>
                 {item.type}
             </h1>

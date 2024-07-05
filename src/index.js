@@ -9,10 +9,10 @@ import {PicturesProvider} from './context/PictureContext'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <PicturesProvider>
-  <CursorProvider>
+  {/* <CursorProvider> */}
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </CursorProvider>
+  {/* </CursorProvider> */}
   </PicturesProvider>
 );

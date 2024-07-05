@@ -5,10 +5,10 @@ import {transition1} from '../transitions'
 import { urlFor } from '../imageUrl';
 
 import { fetchData} from '../fetchData'
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 
 const Home = () => {
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
   const [home, setHome] = useState([]);
 
   const query = `*[_type == "home"]{picture,title,byline}[0]`
@@ -31,11 +31,11 @@ const Home = () => {
       <div className="container mx-auto lg:ml-8 px-8 w-1/2 lg:w-full md:w-3/4 left-0 z-10">
         <motion.div
           initial={{ opacity: 0, y: '-50%' }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}f
           exit={{ opacity: 0, y: '-50%' }}
           transition={transition1}
-          onMouseEnter = {mouseEnterHandler}
-          onMouseLeave = {mouseLeaveHandler}
+          // onMouseEnter = {mouseEnterHandler}
+          // onMouseLeave = {mouseLeaveHandler}
           className="w-full pt-36 pb-14 lg:max-w-auto text-center lg:items-start z-10 left-0 flex items-center flex-col justify-center"
         >
           <h1 className="h1 text-white text-opacity-80 lg:text-opacity-70 flex text-center lg:text-left mb-4 tracking-normal">

@@ -4,11 +4,11 @@ import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 import ServiceCard from './ServiceCard'
 
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 import {Link, useParams, useNavigate} from 'react-router-dom'
 
 const Services = ({setHeaderVisible, headerVisible}) => {
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 const [pictures, setPictures] = useState([]);
 
 const navigate = useNavigate()
@@ -68,12 +68,12 @@ useEffect(() => {
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
-  className='section overflow-auto '>
+  className='section overflow-auto'>
     <div
 
-    onMouseEnter = {mouseEnterHandler}
-    onMouseLeave = {mouseLeaveHandler}  
-    className = {` container mx-auto h-full relative ${headerVisible ? 'pt-24' : 'pt-0'} lg:pb-36`}>  
+    // onMouseEnter = {mouseEnterHandler}
+    // onMouseLeave = {mouseLeaveHandler}  
+    className = {` container mx-auto h-full relative ${headerVisible ? 'pt-40' : 'pt-0'} `}>  
   
     {pictures.map((item)=>{
             return( 

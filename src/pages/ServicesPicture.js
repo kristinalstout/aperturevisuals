@@ -4,14 +4,14 @@ import {Link, useParams, useNavigate} from 'react-router-dom'
 import { fetchData} from '../fetchData'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 import { usePictures } from '../context/PictureContext'
 
 
 
 
 function SinglePicturePage() {
-    const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+    //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
     const {id} = useParams()
     const pictures = usePictures()
     const navigate = useNavigate()
@@ -82,8 +82,8 @@ const goToPreviousPicture = () => {
       <div className = 'container mx-auto h-full relative'>
       <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8' >
     <motion.div 
-    onMouseEnter = {mouseEnterHandler}
-    onMouseLeave = {mouseLeaveHandler}
+    // onMouseEnter = {mouseEnterHandler}
+    // onMouseLeave = {mouseLeaveHandler}
     initial = {{opacity:0, y:'-80%'}} 
     animate = {{opacity:1, y:0}}
     exit = {{opacity:0, y:'-80%'}}

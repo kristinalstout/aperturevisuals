@@ -3,14 +3,14 @@ import React, {useContext, useEffect, useState, useRef} from 'react';
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 import Picture from './Picture'
 import { usePictures } from '../context/PictureContext'
 // import { urlFor } from '../imageUrl';
 
 const Portfolio = ({setHeaderVisible, headerVisible}) => {
     
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 
   const lastScroll = useRef(0)
   const scrollUpThreshold = 50
@@ -51,15 +51,15 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
 
   return (
     <section className ='section overflow-auto'>
-      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-16 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
         <motion.div 
-        onMouseEnter = {mouseEnterHandler}
-        onMouseLeave = {mouseLeaveHandler}
+        // onMouseEnter = {mouseEnterHandler}
+        // onMouseLeave = {mouseLeaveHandler}
         initial = {{opacity:0, y:'-80%'}} 
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'-80%'}}
         transition = {transition1}
-        className = 'lg:w-1/3  sticky p-4 '>
+        className = 'lg:w-1/3  sticky pl-8 '>
           <h1 className = 'h1 text-center mb-4'>Portfolio</h1>
           <Link to = {'/contact'} className = 'btn mb-[10px] mx-auto lg:mx-0'> 
             Schedule a shoot

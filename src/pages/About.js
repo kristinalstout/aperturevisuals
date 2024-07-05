@@ -57,9 +57,11 @@ const About = ({setHeaderVisible, headerVisible}) => {
     className = 'section overflow-y-scroll'>
       <div className = 'container mx-auto relative'>
         {/* add breakpoint for md screen */}
-        <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-60 '>
+        <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-32 '>
           <div className = 'flex-1 max-h-96 lg:max-h-max order-2 mt-10  mb-10 pb-8 lg:order-none'>
-            <img src = {Mike} alt = ''/>
+            <img         
+            className = ' shadow-lg lg:rounded-lg'
+            src = {Mike} alt = ''/>
           </div>
           <div className = 'flex-1 pt-40 lg:pt-0 lg:w-auto flex flex-col justify-center items-center'>
             <h1 className = 'h1'>Hi, I'm Mike</h1>

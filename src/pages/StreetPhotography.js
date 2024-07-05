@@ -4,13 +4,13 @@ import Picture from './Picture'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 
 // Add <Link to = '/ferriswheel'/> etc. to the portfolio pictures, opens to new page for portfolio
 
 const DC = ({pictures}) => {
 
-  const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+  //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 
 
   // const query = `*[_type == "picture" && collection._ref == '6f8e9bac-0ae2-4316-807d-340c532ad174']`
@@ -29,8 +29,8 @@ const DC = ({pictures}) => {
     <div className = 'container mx-auto h-full relative'>
       <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8' >
         <motion.div 
-        onMouseEnter = {mouseEnterHandler}
-        onMouseLeave = {mouseLeaveHandler}
+        // onMouseEnter = {mouseEnterHandler}
+        // onMouseLeave = {mouseLeaveHandler}
         initial = {{opacity:0, y:'-80%'}} 
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'-80%'}}

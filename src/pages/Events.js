@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState, useRef} from 'react';
 import {Link, useParams, useNavigate} from 'react-router-dom'
-import { CursorContext } from '../context/CursorContext';
+//import { CursorContext } from '../context/CursorContext';
 
 import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
@@ -11,7 +11,7 @@ import Picture from './Picture'
 //url = /events/1
   const Portrait = ({setHeaderVisible, headerVisible}) => {
   
-    const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
+    //const {mouseEnterHandler,mouseLeaveHandler} = useContext(CursorContext)
 
   
     // const query = `*[_type == "picture" && collection._ref == '88e7e31e-ec4c-4099-bca7-294d199888a6']`
@@ -79,8 +79,8 @@ import Picture from './Picture'
       <section className ='section overflow-auto'>
         <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
           <motion.div 
-          onMouseEnter = {mouseEnterHandler}
-          onMouseLeave = {mouseLeaveHandler}
+          // onMouseEnter = {mouseEnterHandler}
+          // onMouseLeave = {mouseLeaveHandler}
           initial = {{opacity:0, y:'-80%'}} 
           animate = {{opacity:1, y:0}}
           exit = {{opacity:0, y:'-80%'}}
