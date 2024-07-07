@@ -32,10 +32,11 @@ function Picture({item,source}) {
         className = ' shadow lg:rounded-lg'
         src={urlFor(item.picture).url()}
         alt={item.name}
-        loading = "lazy"
+
       />
     </Link>
   );
 }
+
 
 export default Picture;

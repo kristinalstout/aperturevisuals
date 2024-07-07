@@ -31,7 +31,7 @@ const Home = () => {
       <div className="container mx-auto lg:ml-8 px-8 w-1/2 lg:w-full md:w-3/4 left-0 z-10">
         <motion.div
           initial={{ opacity: 0, y: '-50%' }}
-          animate={{ opacity: 1, y: 0 }}f
+          animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: '-50%' }}
           transition={transition1}
           // onMouseEnter = {mouseEnterHandler}
