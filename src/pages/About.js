@@ -60,7 +60,7 @@ const About = ({setHeaderVisible, headerVisible}) => {
       <div className = 'container mx-auto relative'>
         {/* add breakpoint for md screen */}
         <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-32 '>
-          <div className = 'flex-1 max-h-96 lg:max-h-max order-2 mt-10  mb-10 pb-8 lg:order-none'>
+          <div className = 'flex-1 lg:max-h-max order-2 mt-10 pb-24 lg:order-none overflow-hidden'>
             <LazyLoadImage       
             className = ' shadow-lg lg:rounded-lg'
             src = {Mike} 

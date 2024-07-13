@@ -21,36 +21,36 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
 
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const portfolioDiv = document.getElementById('portfolio');
+    const portfolioDiv = document.getElementById('portfolio');
 
-  //   const handleScroll = () => {
-  //     const currentScroll = portfolioDiv.scrollTop
-  //     const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+    const handleScroll = () => {
+      const currentScroll = portfolioDiv.scrollTop
+      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
 
-  //     if (currentScroll <= maxScroll) {
-  //       if (currentScroll <= 0) {
-  //         setHeaderVisible(true)
-  //         scrollUpDistance.current = 0 //reset scroll up distance
-  //       }else if(currentScroll >lastScroll.current){
-  //         setHeaderVisible(false)
-  //         scrollUpDistance.current = 0 //reset scroll up distance
-  //       }else if (currentScroll < lastScroll.current){
-  //         scrollUpDistance.current += lastScroll.current - currentScroll
-  //         if (scrollUpDistance.current >= scrollUpThreshold) {
-  //         setHeaderVisible(true)
-  //         }
-  //       }
-  //     }
-  //     lastScroll.current = currentScroll
-  //   }
+      if (currentScroll <= maxScroll) {
+        if (currentScroll <= 0) {
+          setHeaderVisible(true)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if(currentScroll >lastScroll.current){
+          setHeaderVisible(false)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if (currentScroll < lastScroll.current){
+          scrollUpDistance.current += lastScroll.current - currentScroll
+          if (scrollUpDistance.current >= scrollUpThreshold) {
+          setHeaderVisible(true)
+          }
+        }
+      }
+      lastScroll.current = currentScroll
+    }
 
-  //   portfolioDiv.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     portfolioDiv.removeEventListener('scroll', handleScroll)
-  //   }
-  // })
+    portfolioDiv.addEventListener('scroll', handleScroll)
+    return () => {
+      portfolioDiv.removeEventListener('scroll', handleScroll)
+    }
+  })
 
     const sendEmail = (e) => {
       e.preventDefault();
@@ -79,55 +79,54 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
   animate = {{opacity:1, y:0}}
   exit = {{opacity:0, y:'100%'}}
   transition = {transition1}
-  // id = 'portfolio'
-  className='section bg-white h-screen overflow-y-auto'>
-    <div className = 'container mx-auto h-full'>
-      <div className = {`flex flex-col lg:flex-row  items-center justify-start pt-36 ${headerVisible ? 'pt-24' : 'pt-0'} gap-x-8 text-center lg:text-left`}>
+  id = 'portfolio'
+  className='section bg-white h-screen overflow-y-scroll lg:overflow-hidden'>
+    <div className = ''>
+      <div className = {`flex flex-col lg:flex-row items-center justify-start ${headerVisible ? 'pt-24' : 'pt-0'} gap-x-8 lg:gap-x-24 lg:px-44 text-center lg:text-left`}>
         <motion.div
         initial = {{opacity:0, y:'100%'}} 
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'100%'}}
         transition = {transition1}
-        className = 'hidden lg:flex bg-[#eef7f9] absolute bottom-0 shadow left-0 right-0 top-52 -z-10'>
+        className = 'hidden lg:flex bg-[#eef7f9] absolute pt-36 shadow h-[42rem] left-0 right-0 -z-10'>
         </motion.div>
-        <div 
-          className='lg:flex-1 pt-10 lg:pt-32 px-4'>
+        <div className='lg:flex-1 pt-10 md:pt-2 lg:pt-2 px-4 lg:w-2/3'>
           <h1 className = 'h1'>Contact Me</h1>
           <p className = 'mb-12'>Schedule a consultation and estimate today!</p>
           <form ref = {form} onSubmit = {sendEmail} className = 'flex flex-col gap-y-4'>
-            <div className = 'flex gap-x-10'>
+            <div className = 'flex gap-x-5'>
               <input 
               name = 'name'
-              className = 'outline-none border-b border-b-primary rounded-lg  shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
+              className = 'outline-none border-b border-b-primary lg:rounded-lg  shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
               type='text'
               placeholder='Name'
               />
               <input 
-              name = 'email'
-              className = 'outline-none border-b border-b-primary rounded-lg shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
-              type='text'
-              placeholder='Email'
-              />
-              <input 
               name = 'phonenumber'
-              className = 'outline-none border-b border-b-primary rounded-lg shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
+              className = 'outline-none border-b border-b-primary lg:rounded-lg shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
               type='text'
               placeholder='Phone Number'
               />
-            </div>
+            </div>              
             <input 
+              name = 'email'
+              className = 'outline-none border-b border-b-primary lg:rounded-lg shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
+              type='text'
+              placeholder='Email'
+            />
+            <textarea
               name = 'message'
-              className = 'outline-none border-b border-b-primary rounded-lg shadow-inner h-[60px] bg-transparent font-secondary w-full pl-3 placeholder:text-[#757879]'
+              rows='6'
+              className = 'outline-none border-b border-b-primary lg:rounded-lg shadow-inner bg-transparent font-secondary w-full pl-3 pt-3 placeholder:text-[#757879]'
               type='text'
               placeholder="What's your project?"
             />
-            <button className = 'btn mb-[30px] mx-auto lg:mx-0 self-start'> Send it</button>
+            <button className = 'btn mb-[30px] lg:rounded-lg mx-auto lg:mx-0 self-start'> Send it</button>
 
           </form>
           <div className='lg:hidden'>
            <Socials/>  
           </div>
-
         </div>
         <motion.div 
         // onMouseEnter = {mouseEnterHandler}
@@ -136,10 +135,10 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'100%'}}
         transition = {{transition: transition1, duration: 1.5}}
-        className = {`lg:flex-1 pt-16 pb-10`}>
+        className = {`lg:flex-1 pt-12 pb-24 lg:pb-12 lg:w-1/3`}>
           {/* pt-24 */}
           <LazyLoadImage
-            className = 'lg:rounded-lg shadow'
+            className = 'lg:rounded-lg shadow lg:max-h-[50rem]'
             src={Mike1} 
             alt=''
             effect = 'blur'
