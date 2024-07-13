@@ -1,6 +1,8 @@
 import React from "react";
 import { urlFor } from '../imageUrl';
 import {Link} from 'react-router-dom'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 function ServiceCard({item}) {
@@ -9,10 +11,11 @@ function ServiceCard({item}) {
   return (
     <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pb-16 '>
 <div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden '>
-          <img
-            className = 'rounded-lg shadow'
+          <LazyLoadImage
+            className = 'lg:rounded-lg shadow'
             src={urlFor(item.picture).url()}
             alt={item.type} 
+            effect = 'blur'
           />
       </div>
       <div className='flex-1  pb-12 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
@@ -22,7 +25,7 @@ function ServiceCard({item}) {
             <p className = 'mb-12 max-w-sm'>
                 {item.description}
             </p>
-            <Link to = {`/${item.collection.name}`} className = 'btn mb-[10px] mx-auto lg:mx-0'>
+            <Link to = {`/${item.collection.name}`} className = 'btn lg:rounded-lg mb-[10px] mx-auto lg:mx-0'>
               View {item.type}
             </Link>
           </div>

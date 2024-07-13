@@ -61,7 +61,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         transition = {transition1}
         className = 'lg:w-1/3  sticky pl-8 '>
           <h1 className = 'h1 text-center mb-4'>Portfolio</h1>
-          <Link to = {'/contact'} className = 'btn mb-[10px] mx-auto lg:mx-0'> 
+          <Link to = {'/contact'} className = 'btn lg:rounded-lg mb-[10px] mx-auto lg:mx-0'> 
             Schedule a shoot
           </Link>
         </motion.div>

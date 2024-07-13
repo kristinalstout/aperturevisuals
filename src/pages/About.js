@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom'
 // import {transition1} from '../transitions'
 // import Mike1 from '../img/about/mike1.jpg'
 import Mike from '../img/about/mike.jpg'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // import { CursorContext } from '../context/CursorContext';
 
@@ -59,9 +61,12 @@ const About = ({setHeaderVisible, headerVisible}) => {
         {/* add breakpoint for md screen */}
         <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-32 '>
           <div className = 'flex-1 max-h-96 lg:max-h-max order-2 mt-10  mb-10 pb-8 lg:order-none'>
-            <img         
+            <LazyLoadImage       
             className = ' shadow-lg lg:rounded-lg'
-            src = {Mike} alt = ''/>
+            src = {Mike} 
+            alt = ''
+            effect = 'blur'
+            />
           </div>
           <div className = 'flex-1 pt-40 lg:pt-0 lg:w-auto flex flex-col justify-center items-center'>
             <h1 className = 'h1'>Hi, I'm Mike</h1>
@@ -77,7 +82,7 @@ const About = ({setHeaderVisible, headerVisible}) => {
               <br/>
             Take care
             </p>
-            <Link to = {'/portfolio'} className = 'btn'> 
+            <Link to = {'/portfolio'} className = 'btn lg:rounded-lg'> 
               View my work
             </Link>
           </div>

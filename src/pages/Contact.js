@@ -7,6 +7,8 @@ import Socials from '../components/Socials'
 //import { CursorContext } from '../context/CursorContext';
 import emailjs from '@emailjs/browser'
 import Mike1 from '../img/about/mike1.jpg'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Contact = ({setHeaderVisible, headerVisible}) => {
 
@@ -136,9 +138,12 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
         transition = {{transition: transition1, duration: 1.5}}
         className = {`lg:flex-1 pt-16 pb-10`}>
           {/* pt-24 */}
-          <img 
-          className = 'lg:rounded-lg shadow'
-          src={Mike1} alt=''/>
+          <LazyLoadImage
+            className = 'lg:rounded-lg shadow'
+            src={Mike1} 
+            alt=''
+            effect = 'blur'
+          />
         </motion.div>
       </div>
       <div>

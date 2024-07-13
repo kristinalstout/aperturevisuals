@@ -5,6 +5,8 @@ import {transition1} from '../transitions'
 import { urlFor } from '../imageUrl';
 
 import { fetchData} from '../fetchData'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 //import { CursorContext } from '../context/CursorContext';
 
 const Home = () => {
@@ -44,7 +46,7 @@ const Home = () => {
           <p className="text-white text-opacity-70 lg:text-opacity-80 text-center lg:text-left mb-4 lg:mb-12 font-primary text-[26px] lg:text-[36px]">
             {home.byline}
           </p>
-          <Link to="/Contact" className="btn bg-[#120604] bg-opacity-80 text-white text-opacity-90 mb-[30px] text-center">
+          <Link to="/Contact" className="btn lg:rounded-lg bg-[#120604] bg-opacity-80 text-white text-opacity-90 mb-[30px] text-center">
             schedule services
           </Link>
         </motion.div>

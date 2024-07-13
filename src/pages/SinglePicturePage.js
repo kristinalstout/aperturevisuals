@@ -5,6 +5,8 @@ import {motion} from 'framer-motion'
 import {transition1} from '../transitions'
 //import { CursorContext } from '../context/CursorContext';
 import { usePictures } from '../context/PictureContext'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function SinglePicturePage({setHeaderVisible, headerVisible}) {
 
@@ -128,25 +130,28 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
       <div className = 'flex gap-x-2 '>
       <button 
       onClick = {()=>goToPreviousPicture()}
-      className = 'btn mb-[30px] mx-auto lg:mx-0 '> 
+      className = 'btn lg:rounded-lg mb-[30px] mx-auto lg:mx-0 '> 
         Previous Picture
       </button>
       <br/>
-      <Link to = {`/${src}`} className = 'btn mb-[30px] mx-auto items-center lg:mx-0'> 
+      <Link to = {`/${src}`} className = 'btn lg:rounded-lg mb-[30px] mx-auto items-center lg:mx-0'> 
         Back to Page
       </Link>
       <br/>
       <button 
       onClick = {()=>goToNextPicture()}
-      className = 'btn mb-[30px] mx-auto lg:mx-0 '> 
+      className = 'btn lg:rounded-lg mb-[30px] mx-auto lg:mx-0 '> 
         Next Picture
       </button>
       </div>
     </motion.div>
     <div>
-      <img className = {`lg:rounded-lg pb-12 ${headerVisible ? 'lg:pt-24' : 'lg:pt-0'}`}
+      <LazyLoadImage 
+      className = {`lg:rounded-lg pb-12 ${headerVisible ? 'lg:pt-24' : 'lg:pt-0'}`}
       src = {urlFor(singlePicture.picture).url()}
-      alt = {singlePicture.name}/>
+      alt = {singlePicture.name}
+      effect = 'blur'
+      />
     </div>
   </div>
 </div>
