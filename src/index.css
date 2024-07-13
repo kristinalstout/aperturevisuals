@@ -5,8 +5,8 @@
 @layer base {
   body {
     @apply 
-    overflow-hidden 
 
+    overflow-auto
     font-secondary 
     bg-white;
   }
