@@ -18,7 +18,7 @@ const menuVariants = {
 
 const MobileNav = () => {
   const [openMenu, setOpenMenu] = useState(false)
-  return <nav className = 'text-slate-200 text-opacity-90 xl:hidden'>
+  return <nav className = 'text-slate-200  text-opacity-90 xl:hidden'>
     <div 
     onClick = {()=>setOpenMenu(true)} 
     className = 'text-3xl cursor-pointer'>

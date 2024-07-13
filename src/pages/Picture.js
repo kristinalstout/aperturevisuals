@@ -1,6 +1,8 @@
 import React from "react";
 import { urlFor } from '../imageUrl';
 import {Link} from 'react-router-dom'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 
 
@@ -28,10 +30,11 @@ function Picture({item,source}) {
     <Link to ={{ pathname: linkUrl }}
     state = {{src: source}}>
     
-      <img 
+      <LazyLoadImage
         className = ' shadow lg:rounded-lg'
         src={urlFor(item.picture).url()}
         alt={item.name}
+        effect = 'blur'
 
       />
     </Link>
