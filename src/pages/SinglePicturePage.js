@@ -27,37 +27,37 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
   const scrollUpThreshold = 50
   const scrollUpDistance = useRef(0)
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const portfolioDiv = document.getElementById('portfolio');
-    if (portfolioDiv) { // Check if the element exists
-    const handleScroll = () => {
-      const currentScroll = portfolioDiv.scrollTop
-      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+  //   const portfolioDiv = document.getElementById('portfolio');
+  //   if (portfolioDiv) { // Check if the element exists
+  //   const handleScroll = () => {
+  //     const currentScroll = portfolioDiv.scrollTop
+  //     const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
 
-      if (currentScroll <= maxScroll) {
-        if (currentScroll <= 0) {
-          setHeaderVisible(true)
-          scrollUpDistance.current = 0 //reset scroll up distance
-        }else if(currentScroll >lastScroll.current){
-          setHeaderVisible(false)
-          scrollUpDistance.current = 0 //reset scroll up distance
-        }else if (currentScroll < lastScroll.current){
-          scrollUpDistance.current += lastScroll.current - currentScroll
-          if (scrollUpDistance.current >= scrollUpThreshold) {
-          setHeaderVisible(true)
-          }
-        }
-      }
-      lastScroll.current = currentScroll
-    }
+  //     if (currentScroll <= maxScroll) {
+  //       if (currentScroll <= 0) {
+  //         setHeaderVisible(true)
+  //         scrollUpDistance.current = 0 //reset scroll up distance
+  //       }else if(currentScroll >lastScroll.current){
+  //         setHeaderVisible(false)
+  //         scrollUpDistance.current = 0 //reset scroll up distance
+  //       }else if (currentScroll < lastScroll.current){
+  //         scrollUpDistance.current += lastScroll.current - currentScroll
+  //         if (scrollUpDistance.current >= scrollUpThreshold) {
+  //         setHeaderVisible(true)
+  //         }
+  //       }
+  //     }
+  //     lastScroll.current = currentScroll
+  //   }
 
-    portfolioDiv.addEventListener('scroll', handleScroll)
-    return () => {
-      portfolioDiv.removeEventListener('scroll', handleScroll)
-    }
-  }
-  })
+  //   portfolioDiv.addEventListener('scroll', handleScroll)
+  //   return () => {
+  //     portfolioDiv.removeEventListener('scroll', handleScroll)
+  //   }
+  // }
+  // })
 
   useEffect(() => {
     if (pictures.length > 0) {
@@ -127,20 +127,21 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
     className = 'flex flex-col lg:items-start'>
     {/* // className = 'flex flex-col lg:items-start' */}
       <h1 className = 'h1 text-center mb-4'>{singlePicture.collection?.name}</h1>
-      <div className = 'flex gap-x-2 '>
+      <div className = 'flex flex-row justify-between gap-x-2 '>
       <button 
       onClick = {()=>goToPreviousPicture()}
-      className = 'btn lg:rounded-lg mb-[30px] mx-auto lg:mx-0 '> 
+      className = 'btn px-0 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '> 
         Previous Picture
       </button>
       <br/>
-      <Link to = {`/${src}`} className = 'btn lg:rounded-lg mb-[30px] mx-auto items-center lg:mx-0'> 
-        Back to Page
+      <Link to = {`/${src}`} className = 'btn px-5 md:px-[50px] lg:px-[25px] lg:whitespace-nowrap lg:rounded-lg mb-[30px] items-center text-center lg:mx-0'> 
+        Back to 
+        Page
       </Link>
       <br/>
       <button 
       onClick = {()=>goToNextPicture()}
-      className = 'btn lg:rounded-lg mb-[30px] mx-auto lg:mx-0 '> 
+      className = 'btn px-4 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '> 
         Next Picture
       </button>
       </div>
