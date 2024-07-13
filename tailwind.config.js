@@ -18,7 +18,29 @@ module.exports = {
 
         accent: '#EEF7F9',
       },
+      transitionDuration: {
+        '400':'400ms',
+      },
+      transitiontTop: {
+        'top':'top',
+      },
     },
   },
   plugins: [],
 };
+// module.exports = {
+//   theme: {
+//     extend: {
+//       transitionProperty: {
+//         'top': 'top',
+//       },
+//       transitionDuration: {
+//         '400': '400ms',
+//       },
+//     },
+//   },
+//   variants: {
+//     extend: {},
+//   },
+//   plugins: [],
+// };

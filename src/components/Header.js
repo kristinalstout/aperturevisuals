@@ -16,7 +16,7 @@ const Header = ({headerVisible}) => {
   return <header className={`fixed w-full 
   px-[30px] lg:px-[100px] 
   z-30 h-[100px] lg:h-[120px] 
-  flex items-center text-white text-inherit shadow-lg outline text-opacity-80 ${headerVisible ? 'top-0' : 'invisible'}`}>
+  flex items-center text-white text-inherit shadow-lg outline text-opacity-80 ${headerVisible ? 'top-0 transition-top duration-400 ease-out' : '-top-80 transition-top duration-400 ease-out'}`}>
     <div 
     className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
       <Link  

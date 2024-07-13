@@ -51,7 +51,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
 
   return (
     <section className ='section overflow-auto'>
-      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-16 text-center lg:text-left ${headerVisible ? 'pt-32' : 'pt-12'} pb-0 lg:pb-36`} >
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-16 text-center lg:text-left ${headerVisible ? 'pt-32 transition-top duration-400 ease-out' : 'pt-4 transition-top duration-300 ease-out'} pb-0 lg:pb-36`} >
         <motion.div 
         // onMouseEnter = {mouseEnterHandler}
         // onMouseLeave = {mouseLeaveHandler}

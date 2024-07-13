@@ -82,7 +82,7 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
   id = 'portfolio'
   className='section bg-white h-screen overflow-y-scroll lg:overflow-hidden'>
     <div className = ''>
-      <div className = {`flex flex-col lg:flex-row items-center justify-start ${headerVisible ? 'pt-24' : 'pt-0'} gap-x-8 lg:gap-x-24 lg:px-44 text-center lg:text-left`}>
+      <div className = {`flex flex-col lg:flex-row items-center justify-start ${headerVisible ? 'pt-24 transition-top duration-400 ease-out' : 'pt-0 transition-top duration-300 ease-out'} gap-x-8 lg:gap-x-24 lg:px-44 text-center lg:text-left`}>
         <motion.div
         initial = {{opacity:0, y:'100%'}} 
         animate = {{opacity:1, y:0}}
