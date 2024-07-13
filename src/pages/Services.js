@@ -73,7 +73,7 @@ useEffect(() => {
 
     // onMouseEnter = {mouseEnterHandler}
     // onMouseLeave = {mouseLeaveHandler}  
-    className = {` container mx-auto h-full relative pb-24 ${headerVisible ? 'pt-32 transition-top duration-400 ease-out' : 'pt-12 transition-top duration-300 ease-out'} `}>  
+    className = {` container mx-auto h-full relative pb-24 ${headerVisible ? 'pt-32 transition-top duration-700 ease-out' : 'pt-12 transition-top duration-700 ease-out'} `}>  
   
     {pictures.map((item)=>{
             return( 

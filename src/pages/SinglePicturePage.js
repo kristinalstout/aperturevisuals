@@ -117,7 +117,7 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
       className='section overflow-x-hidden overflow-y-scroll'
     >
       <div className = 'container mx-auto h-full relative'>
-        <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left  ${headerVisible ? 'pt-36 lg:pt-36 transition-top duration-400 ease-out' : 'pt-12 lg:pt-36 transition-top duration-300 ease-out'}`} >
+        <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left  ${headerVisible ? 'pt-36 lg:pt-36 transition-top duration-700 ease-out' : 'pt-12 lg:pt-36 transition-top duration-700 ease-out'}`} >
           <motion.div 
             initial = {{opacity:0, y:'-80%'}} 
             animate = {{opacity:1, y:0}}
