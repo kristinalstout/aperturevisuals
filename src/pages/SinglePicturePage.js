@@ -116,7 +116,7 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
         transition = {transition1}
     className='section overflow-x-hidden overflow-y-scroll'>
       <div className = 'container mx-auto h-full relative'>
-      <div className = 'flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left pt-24 lg:pt-36 pb-8' >
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left  ${headerVisible ? 'pt-32 lg:pt-36 transition-top duration-400 ease-out' : 'pt-12 lg:pt-36 transition-top duration-300 ease-out'}`} >
     <motion.div 
     // onMouseEnter = {mouseEnterHandler}
     // onMouseLeave = {mouseLeaveHandler}
@@ -148,7 +148,7 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
     </motion.div>
     <div>
       <LazyLoadImage 
-      className = {`lg:rounded-lg pb-12 ${headerVisible ? 'lg:pt-24 transition-top duration-400 ease-out' : 'lg:pt-0 transition-top duration-300 ease-out'}`}
+      className = {`lg:rounded-lg pb-24 lg:pb-12 ${headerVisible ? 'lg:pt-24 transition-top duration-400 ease-out' : 'lg:pt-0 transition-top duration-300 ease-out'}`}
       src = {urlFor(singlePicture.picture).url()}
       alt = {singlePicture.name}
       effect = 'blur'
