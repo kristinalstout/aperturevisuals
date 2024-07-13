@@ -18,11 +18,11 @@ function ServiceCard({item}) {
             effect = 'blur'
           />
       </div>
-      <div className='flex-1  pb-12 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
+      <div className='flex-1 pb-6 lg:pt-0 lg:w-auto z-10 flex flex-col justify-center items-center lg:items-start'>
             <h1 className = 'h1'>
                 {item.type}
             </h1>
-            <p className = 'mb-12 max-w-sm'>
+            <p className = 'mb-2 max-w-sm'>
                 {item.description}
             </p>
             <Link to = {`/${item.collection.name}`} className = 'btn lg:rounded-lg mb-[10px] mx-auto lg:mx-0'>

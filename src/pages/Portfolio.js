@@ -51,7 +51,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
 
   return (
     <section className ='section overflow-auto'>
-      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-16 text-center lg:text-left ${headerVisible ? 'pt-24' : 'pt-0'} pb-0 lg:pb-36`} >
+      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-16 text-center lg:text-left ${headerVisible ? 'pt-28' : 'pt-12'} pb-0 lg:pb-36`} >
         <motion.div 
         // onMouseEnter = {mouseEnterHandler}
         // onMouseLeave = {mouseLeaveHandler}
@@ -59,7 +59,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         animate = {{opacity:1, y:0}}
         exit = {{opacity:0, y:'-80%'}}
         transition = {transition1}
-        className = 'lg:w-1/3  sticky pl-8 '>
+        className = 'lg:w-1/3  sticky lg:pl-8 '>
           <h1 className = 'h1 text-center mb-4'>Portfolio</h1>
           <Link to = {'/contact'} className = 'btn lg:rounded-lg mb-[10px] mx-auto lg:mx-0'> 
             Schedule a shoot
@@ -71,7 +71,7 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
         className = 'lg:w-2/3 h-screen overflow-y-scroll p-8 pt-0 lg:pt-48'>
           {/*         <div className = 'w-2/3 h-screen  p-4 grid grid-cols-2 lg:gap-2 mt-10 '>
           <div className = 'items-center'> */}
-          <div className = 'flex flex-wrap -mx-2'>
+          <div className = 'flex flex-wrap -mx-2 pb-24'>
             <div className = 'w-1/2 '>
               {pictures
               .sort((a,b)=>a.id - b.id)
@@ -99,6 +99,9 @@ const Portfolio = ({setHeaderVisible, headerVisible}) => {
           </div>
         </div>
       </div>
+      {/* <div className=''>
+
+      </div> */}
     </section>
   )
 };
