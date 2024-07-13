@@ -9,7 +9,7 @@ function ServiceCard({item}) {
 // 'max-w-[250px] lg:max-w-[640px] h-[187px] lg:h-[340px] bg-accent overflow-hidden
 // flex justify-center items-center w-full h-full
   return (
-    <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pb-16 '>
+    <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pb-24 '>
 <div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden '>
           <LazyLoadImage
             className = 'lg:rounded-lg shadow'

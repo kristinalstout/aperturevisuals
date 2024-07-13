@@ -109,54 +109,59 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
 
   return (
     <section 
-        id = 'portfolio'
-        initial = {{opacity:0, y:'100%'}} 
-        animate = {{opacity:1, y:0}}
-        exit = {{opacity:0, y:'100%'}}
-        transition = {transition1}
-    className='section overflow-x-hidden overflow-y-scroll'>
+      id = 'portfolio'
+      initial = {{opacity:0, y:'100%'}} 
+      animate = {{opacity:1, y:0}}
+      exit = {{opacity:0, y:'100%'}}
+      transition = {transition1}
+      className='section overflow-x-hidden overflow-y-scroll'
+    >
       <div className = 'container mx-auto h-full relative'>
-      <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left  ${headerVisible ? 'pt-32 lg:pt-36 transition-top duration-400 ease-out' : 'pt-12 lg:pt-36 transition-top duration-300 ease-out'}`} >
-    <motion.div 
-    // onMouseEnter = {mouseEnterHandler}
-    // onMouseLeave = {mouseLeaveHandler}
-    initial = {{opacity:0, y:'-80%'}} 
-    animate = {{opacity:1, y:0}}
-    exit = {{opacity:0, y:'-80%'}}
-    transition = {transition1}
-    className = 'flex flex-col lg:items-start'>
-    {/* // className = 'flex flex-col lg:items-start' */}
-      <h1 className = 'h1 text-center mb-4'>{singlePicture.collection?.name}</h1>
-      <div className = 'flex flex-row justify-between gap-x-2 '>
-      <button 
-      onClick = {()=>goToPreviousPicture()}
-      className = 'btn px-0 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '> 
-        Previous Picture
-      </button>
-      <br/>
-      <Link to = {`/${src}`} className = 'btn px-5 md:px-[50px] lg:px-[25px] lg:whitespace-nowrap lg:rounded-lg mb-[30px] items-center text-center lg:mx-0'> 
-        Back to 
-        Page
-      </Link>
-      <br/>
-      <button 
-      onClick = {()=>goToNextPicture()}
-      className = 'btn px-4 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '> 
-        Next Picture
-      </button>
+        <div className = {`flex flex-col lg:flex-row h-full items-center justify-start gap-x-24 text-center lg:text-left  ${headerVisible ? 'pt-36 lg:pt-36 transition-top duration-400 ease-out' : 'pt-12 lg:pt-36 transition-top duration-300 ease-out'}`} >
+          <motion.div 
+            initial = {{opacity:0, y:'-80%'}} 
+            animate = {{opacity:1, y:0}}
+            exit = {{opacity:0, y:'-80%'}}
+            transition = {transition1}
+            className = 'flex flex-col lg:items-start'
+          >
+            <h1 className = 'h1 text-center mb-4'>
+              {singlePicture.collection?.name}
+            </h1>
+            <div className = 'flex flex-row justify-between gap-x-2 '>
+              <button 
+                onClick = {()=>goToPreviousPicture()}
+                className = 'btn px-0 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '
+              > 
+                Previous Picture
+              </button>
+              <br/>
+              <Link 
+                to = {`/${src}`} 
+                className = 'btn px-5 md:px-[50px] lg:px-[25px] lg:whitespace-nowrap lg:rounded-lg mb-[30px] items-center text-center lg:mx-0'
+              > 
+                Back to Page
+              </Link>
+              <br/>
+              <button 
+                onClick = {()=>goToNextPicture()}
+                className = 'btn px-4 md:px-[50px] lg:rounded-lg mb-[30px] text-center lg:mx-0 '
+              > 
+                Next Picture
+              </button>
+            </div>
+          </motion.div>
+          <div>
+            <LazyLoadImage 
+            className = {`lg:rounded-lg pb-36 lg:pb-12 ${headerVisible ? 'lg:pt-24 transition-top duration-400 ease-out' : 'lg:pt-0 transition-top duration-300 ease-out'}`}
+            src = {urlFor(singlePicture.picture).url()}
+            alt = {singlePicture.name}
+            effect = 'blur'
+            />
+          </div>
+        </div>
       </div>
-    </motion.div>
-    <div>
-      <LazyLoadImage 
-      className = {`lg:rounded-lg pb-24 lg:pb-12 ${headerVisible ? 'lg:pt-24 transition-top duration-400 ease-out' : 'lg:pt-0 transition-top duration-300 ease-out'}`}
-      src = {urlFor(singlePicture.picture).url()}
-      alt = {singlePicture.name}
-      effect = 'blur'
-      />
-    </div>
-  </div>
-</div>
-      </section>
+    </section>
   );
 }
 

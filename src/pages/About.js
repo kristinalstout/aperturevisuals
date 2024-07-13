@@ -68,9 +68,9 @@ const About = ({setHeaderVisible, headerVisible}) => {
             effect = 'blur'
             />
           </div>
-          <div className = 'flex-1 pt-40 lg:pt-0 lg:w-auto flex flex-col justify-center items-center'>
+          <div className = {`flex-1 lg:pt-0 lg:w-auto flex flex-col justify-center items-center ${headerVisible ? 'pt-32 transition-top duration-400 ease-out' : 'pt-0 transition-top duration-300 ease-out'}`}>
             <h1 className = 'h1'>Hi, I'm Mike</h1>
-            <p className = ' mb-12 mt-2 lg:mt-0 max-w-sm items-center'>
+            <p className = ' mb-12 mt-2 mx-4 lg:mx-0 lg:mt-0 max-w-sm items-center'>
               I'm a photographer based in Southern Maryland.
               <br/>
               <br/>
