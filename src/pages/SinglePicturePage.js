@@ -27,37 +27,37 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
   const scrollUpThreshold = 50
   const scrollUpDistance = useRef(0)
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   const portfolioDiv = document.getElementById('portfolio');
-  //   if (portfolioDiv) { // Check if the element exists
-  //   const handleScroll = () => {
-  //     const currentScroll = portfolioDiv.scrollTop
-  //     const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
+    const portfolioDiv = document.getElementById('portfolio');
+    if (portfolioDiv) { // Check if the element exists
+    const handleScroll = () => {
+      const currentScroll = portfolioDiv.scrollTop
+      const maxScroll = portfolioDiv.scrollHeight - portfolioDiv.clientHeight;
 
-  //     if (currentScroll <= maxScroll) {
-  //       if (currentScroll <= 0) {
-  //         setHeaderVisible(true)
-  //         scrollUpDistance.current = 0 //reset scroll up distance
-  //       }else if(currentScroll >lastScroll.current){
-  //         setHeaderVisible(false)
-  //         scrollUpDistance.current = 0 //reset scroll up distance
-  //       }else if (currentScroll < lastScroll.current){
-  //         scrollUpDistance.current += lastScroll.current - currentScroll
-  //         if (scrollUpDistance.current >= scrollUpThreshold) {
-  //         setHeaderVisible(true)
-  //         }
-  //       }
-  //     }
-  //     lastScroll.current = currentScroll
-  //   }
+      if (currentScroll <= maxScroll) {
+        if (currentScroll <= 0) {
+          setHeaderVisible(true)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if(currentScroll >lastScroll.current){
+          setHeaderVisible(false)
+          scrollUpDistance.current = 0 //reset scroll up distance
+        }else if (currentScroll < lastScroll.current){
+          scrollUpDistance.current += lastScroll.current - currentScroll
+          if (scrollUpDistance.current >= scrollUpThreshold) {
+          setHeaderVisible(true)
+          }
+        }
+      }
+      lastScroll.current = currentScroll
+    }
 
-  //   portfolioDiv.addEventListener('scroll', handleScroll)
-  //   return () => {
-  //     portfolioDiv.removeEventListener('scroll', handleScroll)
-  //   }
-  // }
-  // })
+    portfolioDiv.addEventListener('scroll', handleScroll)
+    return () => {
+      portfolioDiv.removeEventListener('scroll', handleScroll)
+    }
+  }
+  })
 
   useEffect(() => {
     if (pictures.length > 0) {
