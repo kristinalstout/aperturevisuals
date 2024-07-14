@@ -7,6 +7,7 @@ import {motion} from 'framer-motion'
 import Header from './components/Header'
 import AnimRoutes from './components/AnimRoutes';
 import { fetchData} from './fetchData'
+import Footer from './components/Footer'
 
 const App = () => {
 
@@ -41,6 +42,7 @@ const App = () => {
     <Header headerVisible = {headerVisible}/>
     <AnimRoutes  setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible} pictureId = {pictureId}/>
     <SpeedInsights />
+    <Footer/>
   </Router>
   {/* <motion.div 
   variants = {cursorVariants}
