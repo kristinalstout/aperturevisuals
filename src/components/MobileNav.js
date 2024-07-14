@@ -55,12 +55,12 @@ const MobileNav = () => {
         <li onClick = {()=> setOpenMenu(false)}>
           <Link to = '/contact'>Contact</Link>
         </li>
-        <li className = 'flex gap-x-4'>
+        <li className = 'flex gap-x-6 items-center justify-center pt-4 text-2xl'>
           <li onClick = {()=> setOpenMenu(false)}>
             <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
             target = '_blank'
             rel='noreferrer'
-            className = 'text-xl'>
+          >
               <ImFacebook/>
             </a>
           </li>
@@ -68,7 +68,7 @@ const MobileNav = () => {
             <a href = 'https://www.instagram.com/aperturevis/'
             target = '_blank'
             rel='noreferrer'
-            className = 'text-xl'>
+            >
               <ImInstagram/>
             </a>
           </li>      
