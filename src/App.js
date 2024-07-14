@@ -42,7 +42,6 @@ const App = () => {
     <Header headerVisible = {headerVisible}/>
     <AnimRoutes  setHeaderVisible = {setHeaderVisible} headerVisible={headerVisible} pictureId = {pictureId}/>
     <SpeedInsights />
-    <Footer/>
   </Router>
   {/* <motion.div 
   variants = {cursorVariants}
