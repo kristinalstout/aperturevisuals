@@ -151,7 +151,7 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
               </button>
             </div>
           </motion.div>
-          <div className = 'pb-36 lg:pb-12'>
+          <div className = 'pb-36 lg:pb-12 lg:pt-8'>
             <LazyLoadImage 
             className = {`lg:rounded-lg shadow-lg shadow-black `}
             src = {urlFor(singlePicture.picture).url()}
