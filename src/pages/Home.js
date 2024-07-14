@@ -75,13 +75,6 @@ const Home = () => {
           <ImInstagram/>
         </a>
       </li>      
-      {/* <li>
-        <a href = 'http://www.twitter.com'
-        target = '_blank'
-        rel='noreferrer'>
-          <ImPinterest/>
-        </a>
-      </li> */}
     </ul>
   </div>
         </motion.div>

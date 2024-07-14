@@ -3,6 +3,11 @@ import {IoMdClose} from 'react-icons/io'
 import {CgMenuRight} from 'react-icons/cg'
 import {Link} from 'react-router-dom'
 import {motion} from 'framer-motion'
+import {
+  ImFacebook,
+  ImPinterest,
+  ImInstagram,
+} from 'react-icons/im'
 
 const menuVariants = {
   hidden: {
@@ -28,7 +33,7 @@ const MobileNav = () => {
       variants = {menuVariants} 
       initial = 'hidden'
       animate = {openMenu ? 'show' : ''}
-      className = 'bg-white shadow-2xl w-full absolute top-0 right-0 max-w-xs h-screen z-20'>
+      className = 'bg-white shadow-2xl shadow-black w-full absolute top-0 right-0 max-w-xs h-screen z-20'>
       <div 
       onClick = {()=> setOpenMenu(false)}
       className = 'text-4xl absolute z-30 left-4 top-14 text-primary cursor-pointer'>  
@@ -49,6 +54,27 @@ const MobileNav = () => {
         </li>
         <li onClick = {()=> setOpenMenu(false)}>
           <Link to = '/contact'>Contact</Link>
+        </li>
+        <li>
+          <br/>
+        </li>
+        <li className = 'flex gap-x-4'>
+          <li onClick = {()=> setOpenMenu(false)}>
+            <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
+            target = '_blank'
+            rel='noreferrer'
+            className = 'text-xl'>
+              <ImFacebook/>
+            </a>
+          </li>
+          <li onClick = {()=> setOpenMenu(false)}>
+            <a href = 'https://www.instagram.com/aperturevis/'
+            target = '_blank'
+            rel='noreferrer'
+            className = 'text-xl'>
+              <ImInstagram/>
+            </a>
+          </li>      
         </li>
       </ul>
     </motion.div>
