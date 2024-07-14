@@ -55,28 +55,24 @@ const Home = () => {
           <Link to="/Contact" className="btn lg:rounded-lg bg-[#120604] bg-opacity-80 text-white text-opacity-90 mb-[30px] text-center">
             schedule services
           </Link>
-          <div 
-        // onMouseEnter = {mouseEnterHandler}
-        // onMouseLeave = {mouseLeaveHandler}
-        className = 'text-white items-center text-xl lg:hidden'>
-    <ul className = 'flex gap-x-4'>
-      <li>
-        <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
-        target = '_blank'
-        rel='noreferrer'>
-          <ImFacebook/>
-        </a>
-      </li>
-
-      <li>
-        <a href = 'https://www.instagram.com/aperturevis/'
-        target = '_blank'
-        rel='noreferrer'>
-          <ImInstagram/>
-        </a>
-      </li>      
-    </ul>
-  </div>
+          <div className = 'text-white items-center text-xl lg:hidden'>
+            <ul className = 'flex gap-x-4'>
+              <li>
+                <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
+                target = '_blank'
+                rel='noreferrer'>
+                  <ImFacebook/>
+                </a>
+              </li>
+              <li>
+                <a href = 'https://www.instagram.com/aperturevis/'
+                target = '_blank'
+                rel='noreferrer'>
+                  <ImInstagram/>
+                </a>
+              </li>      
+            </ul>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -55,9 +55,6 @@ const MobileNav = () => {
         <li onClick = {()=> setOpenMenu(false)}>
           <Link to = '/contact'>Contact</Link>
         </li>
-        <li>
-          <br/>
-        </li>
         <li className = 'flex gap-x-4'>
           <li onClick = {()=> setOpenMenu(false)}>
             <a href = 'https://www.facebook.com/profile.php?id=61559648666254'
