@@ -143,7 +143,7 @@ const Contact = ({setHeaderVisible, headerVisible}) => {
         className = {`lg:flex-1 pt-12 pb-24 lg:pb-12 lg:w-1/3`}>
           {/* pt-24 */}
           <LazyLoadImage
-            className = 'lg:rounded-lg shadow lg:max-h-[50rem]'
+            className = 'lg:rounded-lg shadow-lg shadow-black lg:max-h-[50rem]'
             src={Mike1} 
             alt=''
             effect = 'blur'

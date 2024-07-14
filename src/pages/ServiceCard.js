@@ -12,7 +12,7 @@ function ServiceCard({item}) {
     <div className = 'flex flex-col lg:flex-row h-full items-center justify-center gap-x-24 text-center lg:text-left pb-24 '>
 <div className='flex-1 object-fill max-h-85 max-w-full order-2 lg:order-none overflow-hidden '>
           <LazyLoadImage
-            className = 'lg:rounded-lg shadow'
+            className = 'lg:rounded-lg shadow shadow-black'
             src={urlFor(item.picture).url()}
             alt={item.type} 
             effect = 'blur'

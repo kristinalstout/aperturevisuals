@@ -62,7 +62,7 @@ const About = ({setHeaderVisible, headerVisible}) => {
         <div className = 'flex flex-col lg:flex-row justify-center gap-x-24 text-center lg:text-left lg:pt-32 '>
           <div className = 'flex-1 lg:max-h-max order-2 mt-10 pb-24 lg:order-none overflow-hidden'>
             <LazyLoadImage       
-            className = ' shadow-lg lg:rounded-lg'
+            className = ' shadow-lg shadow-black lg:rounded-lg'
             src = {Mike} 
             alt = ''
             effect = 'blur'

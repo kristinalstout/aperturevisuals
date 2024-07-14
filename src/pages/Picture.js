@@ -31,7 +31,7 @@ function Picture({item,source}) {
     state = {{src: source}}>
     
       <LazyLoadImage
-        className = ' shadow lg:rounded-lg'
+        className = ' shadow-lg shadow-black lg:rounded-lg'
         src={urlFor(item.picture).url()}
         alt={item.name}
         effect = 'blur'

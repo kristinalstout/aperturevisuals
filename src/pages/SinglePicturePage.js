@@ -151,9 +151,9 @@ function SinglePicturePage({setHeaderVisible, headerVisible}) {
               </button>
             </div>
           </motion.div>
-          <div>
+          <div className = 'pb-36 lg:pb-12'>
             <LazyLoadImage 
-            className = {`lg:rounded-lg pb-36 lg:pb-12 ${headerVisible ? 'lg:pt-24 transition-top duration-400 ease-out' : 'lg:pt-0 transition-top duration-300 ease-out'}`}
+            className = {`lg:rounded-lg shadow-lg shadow-black `}
             src = {urlFor(singlePicture.picture).url()}
             alt = {singlePicture.name}
             effect = 'blur'
