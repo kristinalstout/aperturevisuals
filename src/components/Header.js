@@ -16,7 +16,7 @@ const Header = ({headerVisible}) => {
   return <header className={`fixed w-full 
   px-[30px] lg:px-[100px] 
   z-30 h-[100px] lg:h-[120px] 
-  flex items-center text-white text-inherit shadow-lg outline text-opacity-80 ${headerVisible ? 'top-0 transition-top duration-400 ease-out' : '-top-80 transition-top duration-400 ease-out'}`}>
+  flex items-center text-white bg-white bg-opacity-20 text-inherit shadow-lg text-opacity-80 ${headerVisible ? 'top-0 transition-top duration-400 ease-out' : '-top-80 transition-top duration-400 ease-out'}`}>
     <div 
     className='flex flex-col lg:flex-row lg:items-center w-full justify-between'>
       <Link  
@@ -28,34 +28,19 @@ const Header = ({headerVisible}) => {
          src={RoughLogo} alt=''/>
       </Link>
       <nav className='hidden xl:flex gap-x-12 font-semibold'>
-        <Link 
-        //  onMouseEnter = {mouseEnterHandler}
-        //  onMouseLeave = {mouseLeaveHandler}
-         to={'/'} className=' hover:text-primary transition'>
+        <Link to={'/'} className=' hover:text-primary transition'>
           Home
         </Link>
-        <Link 
-        //  onMouseEnter = {mouseEnterHandler}
-        //  onMouseLeave = {mouseLeaveHandler}
-         to={'/about'} className=' hover:text-primary transition'>
+        <Link to={'/about'} className=' hover:text-primary transition'>
           About
         </Link>
-        <Link 
-        //  onMouseEnter = {mouseEnterHandler}
-        //  onMouseLeave = {mouseLeaveHandler}
-         to={'/portfolio'} className=' hover:text-primary transition'>
+        <Link to={'/portfolio'} className=' hover:text-primary transition'>
           Portfolio
         </Link>
-        <Link
-          // onMouseEnter = {mouseEnterHandler}
-          // onMouseLeave = {mouseLeaveHandler}
-          to = {'/services'} className =' hover:text-primary transition'>
+        <Link to = {'/services'} className =' hover:text-primary transition'>
             Services
           </Link>
-        <Link 
-        //  onMouseEnter = {mouseEnterHandler}
-        //  onMouseLeave = {mouseLeaveHandler}
-         to={'/contact'} className=' hover:text-primary transition'>
+        <Link to={'/contact'} className=' hover:text-primary transition'>
           Contact
         </Link>
       </nav>   

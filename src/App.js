@@ -25,17 +25,6 @@ const App = () => {
       setPictureId(data.map(item => item.id)))
 },[idQuery])
 
-  // const loadPictures = useCallback(async() => {
-  //   const data = await fetchData(`*[_type == "picture"]`)
-  //   setPictures(data)
-  //   // fetchData(query).then((data) => setPictures(data));
-  // });
-
-  // useEffect(() => {
-  //   loadPictures();
-  // }, [loadPictures]);
-
-
   return (
   <>
   <Router>

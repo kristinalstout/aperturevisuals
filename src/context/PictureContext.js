@@ -8,9 +8,7 @@ export const PicturesProvider = ({ children }) => {
 
 
 
-        // Fetch pictures from an API or local storage
         const loadPictures = async () => {
-            // Replace with your actual API call or data fetching logic
             const response = await fetchData(`*[_type == "picture"]{
                 name,
                 id,

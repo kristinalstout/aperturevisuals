@@ -10,9 +10,11 @@ import BrandPhotography from '../pages/BrandPhotography'
 import Events from '../pages/Events'
 import Services from '../pages/Services'
 import SinglePicturePage from '../pages/SinglePicturePage'
+import Prints from '../pages/Prints'
 
 import {Routes, Route, useLocation} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
+import SinglePrintPage from '../pages/SinglePrintPage';
 // import { urlFor } from '../imageUrl';
 
 // import { fetchData} from '../fetchData'
@@ -34,6 +36,8 @@ const AnimRoutes = ({setHeaderVisible, headerVisible, pictureId}) => {
       <Route path='/events' element={<Events setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/street-photography' element={<StreetPhotography setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
       <Route path='/services' element = {<Services setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
+      {/* <Route path='/prints' element = {<Prints setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/>
+      <Route path='/shop/:id' element = {<SinglePrintPage setHeaderVisible={setHeaderVisible} headerVisible = {headerVisible}/>}/> */}
       {/* <Route path="/events/:id" element={<SinglePicturePage  />} />
       <Route path="/portraits/:id" element={<SinglePicturePage  />} />
       <Route path="/brand-photography/:id" element={<SinglePicturePage />} /> */}

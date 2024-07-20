@@ -76,12 +76,12 @@ useEffect(() => {
     className = {` container mx-auto h-full relative pb-24 ${headerVisible ? 'pt-32 transition-top duration-700 ease-out' : 'pt-12 transition-top duration-700 ease-out'} `}>  
   
     {pictures.map((item)=>{
-            return( 
-              <div key={`item-${item.type}`}>
-                <ServiceCard item = {item}/>
-              </div>
-            )
-          })}
+      return( 
+        <div key={`item-${item.type}`}>
+          <ServiceCard item = {item}/>
+        </div>
+      )
+    })}
      </div>
   </motion.section>
   )
